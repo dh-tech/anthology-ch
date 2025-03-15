@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthology of Computers and the Humanities - Volume 1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Navbar styling */
+    .navbar {
+      background-color: #000;
+    }
+    
+    .navbar-item img {
+      max-height: 40px;
+    }
+    
+    .navbar-item, .navbar-link {
+      color: white;
+    }
+    
+    .navbar-dropdown {
+      background-color: #000;
+      border-top: none;
+    }
+    
+    .navbar-dropdown .navbar-item {
+      color: white;
+    }
+    
+    .navbar-dropdown .navbar-item:hover {
+      background-color: #333;
+      color: white;
+    }
+    
+    .navbar-burger {
+      color: white;
+    }
+    
+    .hero {
+      background-color: #f5f7fa;
+    }
+    
+    .hero-body {
+      padding: 3rem 1.5rem;
+    }
+    
+    .container {
+      max-width: 800px !important;
+    }
+    
+    .volume-title {
+      margin-bottom: 0.5rem;
+    }
+    
+    .paper-item {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .paper-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1);
+    }
+    
+    .paper-title {
+      font-weight: 600;
+      color: #363636;
+      margin-bottom: 0.5rem;
+    }
+    
+    .paper-authors {
+      margin-bottom: 0.2rem;
+      color: #4a4a4a;
+    }
+
+    .paper-doi {
+      margin-bottom: 1rem;
+      color: #4a4a4a;
+    }
+    
+    .paper-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .paper-pages {
+      color: #777;
+    }
+    
+    .volume-info {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background-color: #fafafa;
+      border-radius: 4px;
+    }
+    
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #f5f7fa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ach.org">
+        <img src="../../logo/logo.png" alt="ACH Logo">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title volume-title">Anthology of Computers and the Humanities</h1>
+        <h2 class="subtitle">Volume 1 · December 2024</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+
+    <div class="notification is-danger is-light has-text-justified">
+      <strong>WARNING &mdash;</strong> This is a demo site showing an example of the page
+      format. It uses two sample papers from the CHR 2024 proceedings to demonstrate
+      how the first volume using the CHR 2025 proceedings will look. <i>The DOIs are 
+      not valid and are included only as placeholders</i>!
+    </div>
+
+      <!-- Volume Information -->
+      <div class="volume-info">
+        <div class="columns">
+          <div class="column is-two-thirds">
+            <h3 class="title is-5">About this Volume</h3>
+            <p class="has-text-justified">
+              Features peer-reviewed conference papers from the Computational Humanities Research Conference held in Aarhus, Denmark, December 4-6, 2024. Edited by Wouter Haverals,
+              Marijn Koolen, and Laure Thompson.
+            </p>
+          </div>
+          <div class="column is-one-third has-text-right">
+            <p><strong>ISSN:</strong> 2021-7845</p>
+            <p><strong>Published:</strong> December 2024</p>
+            <p><strong>Papers:</strong> 3</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Papers List -->
+      <h3 class="title is-4 mb-4">Table of Contents</h3>
+      
+      <!-- Paper 1 -->
+      <div class="paper-item">
+        <a href="discoverability-in-a-digital-library.html" class="paper-title is-size-5">
+          Discoverability in a Digital Library: A Study of "Rabbit Holes" within Gallica's Corpus
+        </a>
+        <p class="paper-authors">
+          Anne-Laure Tettoni, Simon Dumas Primbault
+        </p>
+        <p class="paper-doi is-size-7">
+          <strong><a href="https://doi.org/10.1234/haf17mdsaf71h" target="_blank">https://doi.org/10.1234/haf17mdsaf71h</a></strong>
+        </p>
+        <p class="paper-abstract is-size-6">
+          The phenomenon of aimless web navigation, often compared to falling "down the rabbit hole," brings
+to light significant aspects of the Internet’s "long tail" concept....
+        </p>
+        <div class="paper-meta">
+          <div>
+            <span class="tag is-light">digital library</span>
+            <span class="tag is-light">navigation practices</span>
+            <span class="tag is-light">discoverability</span>
+            <span class="tag is-light">rabbit holes</span>
+            <span class="tag is-light">long tail</span>
+          </div>
+          <span class="paper-pages">pp. 1-20</span>
+        </div>
+        <div class="buttons is-right mt-3">
+          <a href="discoverability-in-a-digital-library.html" class="button is-small">
+            <span class="icon is-small">
+              <i class="fas fa-eye"></i>
+            </span>
+            <span>View Metadata</span>
+          </a>
+          <a href="pdf/discoverability-in-a-digital-library.pdf" class="button is-small is-primary">
+            <span class="icon is-small">
+              <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>PDF</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Paper 2 (duplicate for demonstration) -->
+      <div class="paper-item">
+        <a href="latent-structures-of-intertextuality.html" class="paper-title is-size-5">
+          Latent Structures of Intertextuality in French Fiction: How literary recognition and subgenres are framing textuality
+        </a>
+        <p class="paper-authors">
+          Jean Barré
+        </p>
+        <p class="paper-doi is-size-7">
+          <strong><a href="https://doi.org/10.1234/ffsdfadsfh" target="_blank">https://doi.org/10.1234/ffsdfadsfh</a></strong>
+        </p>
+        <p class="paper-abstract is-size-6">
+          Intertextuality is a key concept in literary theory that challenges traditional notions of text, signification or authorship. It views texts....
+        </p>
+        <div class="paper-meta">
+          <div>
+            <span class="tag is-light pt-1">literary history</span>
+            <span class="tag is-light">intertextuality</span>
+            <span class="tag is-light">computational literary studies</span>
+            <span class="tag is-light">genres</span>
+            <span class="tag is-light">canon</span>
+            <span class="tag is-light">distant reading</span>
+            <span class="tag is-light">cultural analytics</span>
+            <span class="tag is-light mt-2">natural language processing</span>
+          </div>
+          <span class="paper-pages">pp. 21-36</span>
+        </div>
+        <div class="buttons is-right mt-3">
+          <a href="latent-structures-of-intertextuality.html" class="button is-small">
+            <span class="icon is-small">
+              <i class="fas fa-eye"></i>
+            </span>
+            <span>View Metadata</span>
+          </a>
+          <a href="pdf/latent-structures-of-intertextuality.pdf" class="button is-small is-primary">
+            <span class="icon is-small">
+              <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Anthology of Computers and the Humanities</strong> · Association for Computers and the Humanities
+      </p>
+      <p class="is-size-7">
+        Papers © 2025 their authors. All other content © 2025 ACH.
+      </p>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar burger menu functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+    
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discoverability in a Digital Library: A Study of "Rabbit Holes" within Gallica's Corpus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Navbar styling */
+    .navbar {
+      background-color: #000;
+    }
+    
+    .navbar-item img {
+      max-height: 40px;
+    }
+    
+    .navbar-item, .navbar-link {
+      color: white;
+    }
+    
+    .navbar-dropdown {
+      background-color: #000;
+      border-top: none;
+    }
+    
+    .navbar-dropdown .navbar-item {
+      color: white;
+    }
+    
+    .navbar-dropdown .navbar-item:hover {
+      background-color: #333;
+      color: white;
+    }
+    
+    .navbar-burger {
+      color: white;
+    }
+    
+    .hero {
+      background-color: #f5f7fa;
+    }
+    .hero-body {
+      padding: 3rem 1.5rem;
+    }
+    .section {
+      padding: 1rem;      
+    }
+    .container {
+      max-width: 800px !important;
+    }
+    .paper-title {
+      margin-bottom: 0.5rem;
+      font-size: 1.75rem !important;
+    }
+    .paper-meta {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .authors-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .author-item {
+      flex: 0 0 auto;
+      margin-bottom: 1rem;
+    }
+    .author-name {
+      font-weight: 600;
+    }
+    .orcid-link {
+      display: inline-flex;
+      align-items: center;
+      color: #a6ce39;
+      margin-left: 0.5rem;
+    }
+    .orcid-logo {
+      height: 16px;
+      margin-right: 3px;
+    }
+    .doi-box {
+      background-color: #f5f7fa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .citation-box {
+      background-color: #fafafa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+    .content {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .buttons-container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #f5f7fa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ach.org">
+        <img src="../../logo/logo.png" alt="ACH Logo">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <p class="subtitle is-6 has-text-grey">Anthology of Computers and the Humanities · <a href=".">Volume 1</a></p>
+        <h1 class="title paper-title">Discoverability in a Digital Library: A Study of "Rabbit Holes" within Gallica's Corpus</h1>
+
+        <div class="is-size-5 pl-7">
+          <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"><img style="height:30px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png"></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+
+      <div class="notification is-danger is-light has-text-justified">
+        <strong>WARNING &mdash;</strong> This is a demo site showing an example of the page
+        format. It uses two sample papers from the CHR 2024 proceedings to demonstrate
+        how the first volume using the CHR 2025 proceedings will look. <i>The DOIs are 
+        not valid and are included only as placeholders</i>!
+      </div>
+
+      <div class="paper-meta">
+        <div class="authors-container">
+          <!-- Author 1 -->
+          <div class="author-item">
+            <p class="author-name">Anne-Laure Tettoni</p>
+            <p class="is-size-7 has-text-grey">Laboratory for the history of science and technology (LHST), Swiss Federal Institute of Technology (EPFL), CH-1015 Lausanne, Switzerland</p>
+            <p class="is-size-7">
+              <a href="https://orcid.org/0000-0002-0877-7063" target="_blank" class="orcid-link">
+                <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID logo" class="orcid-logo">
+                 0000-0002-0877-7063
+              </a>
+            </p>
+          </div>
+          <!-- Author 2 -->
+          <div class="author-item">
+            <p class="author-name">Simon Dumas Primbault</p>
+            <p class="is-size-7 has-text-grey">Laboratory for the history of science and technology (LHST), Swiss Federal Institute of Technology (EPFL), CH-1015 Lausanne, Switzerland</p>
+            <p class="is-size-7 has-text-grey">OpenEdition (UAR 2504, CNRS/EHESS/AMU/AU), 22 rue John Maynard Keynes, 13013 Marseille, France</p>
+            <p class="is-size-7 has-text-grey">Bibliothèque nationale de France (BnF), Quai François Mauriac, 75706 Paris, France</p>
+            <p class="is-size-7">
+              <a href="https://orcid.org/0000-0001-7116-9338" target="_blank" class="orcid-link">
+                <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID logo" class="orcid-logo">
+                0000-0001-7116-9338
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Buttons -->
+      <div class="buttons-container">
+        <a href="pdf/discoverability-in-a-digital-library.pdf" class="button is-primary">
+          <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+          </span>
+          <span>Download PDF</span>
+        </a>
+        <a href="" class="button is-info">
+          <span class="icon">
+            <i class="fas fa-file-code"></i>
+          </span>
+          <span>Download BibTeX</span>
+        </a>
+        
+      </div>
+
+      <!-- DOI -->
+      <div class="doi-box">
+        <p class="is-size-6 has-text-grey-dark">
+          <strong>LINK:</strong> <a href="https://doi.org/10.1234/haf17mdsaf71h" target="_blank">https://doi.org/10.1234/haf17mdsaf71h</a>
+        </p>
+      </div>
+      
+      <!-- Citation -->
+      <div class="citation-box">
+        <p class="is-size-7 has-text-grey-dark mb-2">
+          <strong>Citation:</strong>
+        </p>
+        <p>
+          Tettoni, A.-L., & Dumas Primbault, S. (2024). 'Discoverability in a Digital Library: A Study of "Rabbit Holes" within Gallica's Corpus.' <em>Anthology of Computers and the Humanities</em>, 72, 1-20. https://doi.org/10.1234/haf17mdsaf71h
+        </p>
+
+      </div>
+
+      <!-- Abstract -->
+      <div class="content">
+        <h2 class="title is-4">Abstract</h2>
+        <p>
+          The phenomenon of aimless web navigation, often compared to falling "down the rabbit hole," brings
+to light significant aspects of the Internet’s "long tail" concept. This research examines whether longer,
+non-goal-oriented web sessions genuinely lead users into the long tail of digital libraries, thereby ex-
+ploring the discoverability of cultural heritage. The focus of this study is on Gallica, the French national
+library’s online platform. This work aims to identify and characterize such sessions within Gallica,
+defining rabbit holes as long and diversified navigation sessions. The difÏculty lies in identifying rabbit
+holes within server logs, which requires a mixed-methods approach involving interviews, qualitative
+studies, and simple statistical analyses. Despite Gallica’s lack of hypertextual structure, we show that
+users do engage in rabbit hole-like behavior, navigating through keyword searches and filters. The
+study’s findings align with user testimonies. A crucial conclusion is that rabbit holes in Gallica do not
+generally lead users to less-consulted content. This limitation is attributed to the search engine, which
+users must somewhat "hack" to navigate effectively. Enhancing Gallica’s discoverability tools without
+compromising the existing user experience is essential for improving content accessibility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Anthology of Computers and the Humanities</strong> · Association for Computers and the Humanities
+      </p>
+      <p class="is-size-7">
+        Paper © 2025 the authors. All other content © 2025 ACH.
+      </p>
+    </div>
+  </footer>
+
+  
+  <script>
+    // Navbar burger menu functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+    
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
