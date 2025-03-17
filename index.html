@@ -1,8 +1,243 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthology of Computers and the Humanities</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Navbar styling */
+    .navbar {
+      background-color: #000;
+    }
+    
+    .navbar-item img {
+      max-height: 40px;
+    }
+    
+    .navbar-item, .navbar-link {
+      color: white;
+    }
+    
+    .navbar-dropdown {
+      background-color: #000;
+      border-top: none;
+    }
+    
+    .navbar-dropdown .navbar-item {
+      color: white;
+    }
+    
+    .navbar-dropdown .navbar-item:hover {
+      background-color: #333;
+      color: white;
+    }
+    
+    .navbar-burger {
+      color: white;
+    }
+    
+    .hero {
+      background-color: #f5f7fa;
+    }
+    
+    .hero-body {
+      padding: 3rem 1.5rem;
+    }
+    
+    .container {
+      max-width: 800px !important;
+    }
+    
+    .volume-title {
+      margin-bottom: 0.5rem;
+    }
+    
+    .paper-item {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .paper-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1);
+    }
+    
+    .paper-title {
+      font-weight: 600;
+      color: #363636;
+      margin-bottom: 0.5rem;
+    }
+    
+    .paper-authors {
+      margin-bottom: 0.2rem;
+      color: #4a4a4a;
+    }
+
+    .paper-doi {
+      margin-bottom: 1rem;
+      color: #4a4a4a;
+    }
+    
+    .paper-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .paper-pages {
+      color: #777;
+    }
+    
+    .volume-info {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background-color: #fafafa;
+      border-radius: 4px;
+    }
+    
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #f5f7fa;
+    }
+  </style>
+</head>
 <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ach.org">
+        <img src="./logo/logo.png" alt="ACH Logo">
+      </a>
 
-<p>Test page to test link address.</p>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
 
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title volume-title">Anthology of Computers and the Humanities</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Papers List -->
+      <h3 class="title is-5 mb-1">Welcome!</h3>
+      
+      <p class="has-text-justified py-3">
+        Welcome to the landing page for the newly created publication
+        <i>Anthology of Computers and the Humanities</i>. The goal of this
+        project is to create a low-cost, open-access, and easy-to-maintain
+        digital archive that hosts peer-reviewed conference papers from digital
+        humanities conferences and workshops. The archive will be indexed across
+        the most popular scholarly indices and include support for persistent
+        identifiers including DOIs (digital object identifier) and ORCID iDs.
+      </p>
+
+      <p class="has-text-justified py-3">
+        Conference proceedings consists of collections of papers presented at
+        academic conferences and workshops. Proceedings allow for the dissemination and
+        citation of work that has been presented to and reviewed by experts within a field.
+        Proceedings can be published as a special issue or section of an existing journal, as a
+        printed book, or&mdash;as is increasingly the case in many fields&mdash;in special-purpose digital
+        publication venues. Papers within proceedings are normally peer-reviewed as part of the
+        conference itself, written in formats that can be easily adapted to archival forms (i.e.,
+        LaTeX converted into PDF or Markdown converted into PDF or HTML), and are not
+        copyedited. These features make them ideal for quickly disseminating research in an
+        open platform. The role of conference proceedings diOers significantly across fields. For
+        example, while for many social sciences proceedings are considered pre-cursors to
+        longer papers in the more prestigious journals, in computer science proceedings have
+        become the de facto form of publication in most domains
+      </p>
+
+      <p class="has-text-justified py-3">
+         Open platforms for conference proceedings are frequently hosted by scholarly
+        associations. For example: IEEE Conference Proceedings Archive, the ACL (Association
+        for Computational Linguistics) Anthology, and the ACM (Association for Computing
+        Machinery) International Conference Proceedings Series. There is currently no
+        comparable option for proceedings for DH conferences and workshops. This has left
+        conference organizers to either (a) self-host their proceedings without the benefits of
+        scholarly indices or other tools for search and discovery, or (b) to have to work within the
+        strict confines of adjacent fields to publish within existing archives. We expect
+        the <i>Anthology of Computers and the Humanities</i> to fill these gaps.
+      </p>
+
+      <h3 class="title is-5 mt-5 mb-1">Publishing in the Anthology</h3>
+
+      <p class="has-text-justified py-3">
+        Are you hosting a workshop or conference series that would like to published
+        your peer-reviewed proceedings or other materials in the
+        <i>Anthology of Computers and the Humanities</i>? We are now welcoming
+        proposals from groups looking to publish in the first volumes in the
+        anthology. Please reach out to the ACH Co-President <a href="mailto:ltilton@richmond.edu" title="Email"><b>Lauren Tilton (ltilton@richmond.edu)</b></a> for more details or with any questions!
+      </p>
+
+      <h3 class="title is-5 mt-5 mb-1">Resources</h3>
+
+      <p class="has-text-justified py-3">
+        The <i>Anthology of Computers and the Humanities</i> will be publishing our
+        first volume containing papers from the 2025 Computational Humanities Research
+        conference in mid-November. To submit to the conference, please download the
+        LaTeX template files (<a href="resources/anthology-ch.zip">anthology-ch.zip</a>)
+        or use the pre-created Overleaf template available here:
+        <a href="#">overleaf template</a>. We will provide a similar template
+        for other conference proceedings in additional formats (e.g., markdown)
+        as needed.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Anthology of Computers and the Humanities</strong> · Association for Computers and the Humanities
+      </p>
+      <p class="is-size-7">
+        Papers © 2025 their authors. All other content © 2025 ACH.
+      </p>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar burger menu functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+    
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    });
+  </script>
 </body>
-</html> 
+</html>
