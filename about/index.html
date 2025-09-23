@@ -112,6 +112,13 @@
       padding: 1.5rem;
       background-color: #f5f7fa;
     }
+
+      ul {
+    list-style-type: disc; /* adds bullet points */
+    margin-left: 20px;     /* indentation */
+    padding-left: 20px;    /* extra padding if needed */
+    padding-bottom: 16px;
+  }
   </style>
 </head>
 <body>
@@ -132,11 +139,14 @@
       <div class="navbar-start">
       </div>
       <div class="navbar-end">
-        <a class="navbar-item" href="#">
-          <b>About</b>
+        <a class="navbar-item" href="https://anthology.ach.org/">
+          <b>Home</b>
         </a>
-        <a class="navbar-item" href="../people">
-          <b>People</b>
+        <a class="navbar-item" href="https://anthology.ach.org/volumes/vol0001">
+          <b>Volumes</b>
+        </a>
+        <a class="navbar-item" href="https://anthology.ach.org/about">
+          <b>About</b>
         </a>
         <span style="width: 25px"></span>
       </div>
@@ -156,36 +166,60 @@
   <section class="section">
     <div class="container">
 
-      <h3 class="title is-5 mb-1">About</h3>
+      <h3 class="title is-5 mb-1">Motivation and Background</h3>
 
       <p class="has-text-justified py-3">
-        Conference proceedings consist of collections of papers presented at
-        academic conferences and workshops. Proceedings allow for the dissemination and
-        citation of work that has been presented to and reviewed by experts within a field.
-        Proceedings can be published as a special issue or section of an existing journal, as a
-        printed book, or&mdash;as is increasingly the case in many fields&mdash;in special-purpose digital
-        publication venues. Papers within proceedings are normally peer-reviewed as part of the
-        conference itself, written in formats that can be easily adapted to archival forms (i.e.,
-        LaTeX converted into PDF or Markdown converted into PDF or HTML), and are not
-        copyedited. These features make them ideal for quickly disseminating research in an
-        open platform. The role of conference proceedings differs significantly across fields. For
-        example, while for many social sciences proceedings are considered pre-cursors to
-        longer papers in the more prestigious journals, in computer science proceedings have
-        become the de facto form of publication in most domains.
+        We published <a href="https://anthology.ach.org/volumes/vol0001/introducing-anthology-for-computers-humanities/">an article</a> describing the motivation and background for starting the Anthology. Please <a href="mailto:tarnold2@richmond.edu" title="Email"><b>get in touch</b></a> for more details if you are interested in publishing a conference proceedings in the Anthology.
       </p>
 
-      <p class="has-text-justified py-3">
-         Open platforms for conference proceedings are frequently hosted by scholarly
-        associations. For example: IEEE Conference Proceedings Archive, the ACL (Association
-        for Computational Linguistics) Anthology, and the ACM (Association for Computing
-        Machinery) International Conference Proceedings Series. There is currently no
-        comparable option for proceedings for DH conferences and workshops. This has left
-        conference organizers to either (a) self-host their proceedings without the benefits of
-        scholarly indices or other tools for search and discovery, or (b) to have to work within the
-        strict confines of adjacent fields to publish within existing archives. We expect
-        the <i>Anthology of Computers and the Humanities</i> to fill these gaps.
-      </p>
+      <h3 class="title is-5 mb-1" style="margin-top: 1em">People</h3>
       
+      <p class="has-text-justified py-2">
+        Every volume of the Anthology contains proceedings with a single conference or workshop. Editorial tasks related to each volume, including peer-review and acceptance decision, are handeled directly by the program chairs for the conference, who serve as editors of the volume.
+      </p>
+
+      <p class="has-text-justified py-3">
+        The Editor-in-Chief of the Anthology (<b>Taylor Arnold</b>, University of Richmond) is responsible for accepting proposals for volumes and the process of publishing each volume on the website and through CrossRef. They also lead the long-term planning for the publication along with the Anthology's advisory board, consisting of:
+      </p>
+
+      <ul class="has-text-justified px-5" style="list-style-type: circle; padding-left: 14px">
+        <li><b>Maria Antoniak</b>, University of Colorado, U.S.A.</li>
+        <li><b>Miguel Escobar Varela</b>, National University of Singapore</li>
+        <li><b>Mila Oiva</b>, University of Turku, Finland</li>
+        <li><b>Marie Puren</b>, EPITA, Paris, France</li>
+        <li><b>Amanda Regan</b>, Clemson University, U.S.A.</li>
+        <li><b>Melanie Walsh</b>, University of Washington, U.S.A.</li>
+      </ul>
+
+      <p class="has-text-justified py-3">
+        We also work closely with the Executive Board of our parent organization, the Association for Computers and the Humanities. We will be releasing a full governance document in early September 2025. In the meantime, the best way to get involved is to propose a volume for the Anthology or contribute a paper one of the participating conferences.
+      </p>
+
+
+      <h3 class="title is-5 mb-1" style="margin-top: 1em">Policies and Governance</h3>
+
+      <p class="has-text-justified py-3">
+        The Anthology is running according to the <a href="https://anthology.ach.org/resources/ach_gov.pdf">governance documents</a> passed by the Executive Board of the Association for the Computers and the Humanities on 28 August 2025. 
+        Volumes published in the Anthology are expected to ensure that papers published within them follow these guidelines:
+      </p>
+      <ul>
+      <li>Conferences and workshops publishing in the Anthology should have open calls for participation, ideally with at least half of the contributions in the volume coming from non-invited participants.</li>
+      <li>Papers in the Anthology should be original work that has not been previously published in any archival format.</li>
+      <li>Papers published in the Anthology must be peer-reviewed.</li>
+      <li>Papers may either be published ahead of the conference or immediately afterwards. Typically, a gap of no more than 6 months should elapse before finalized papers are sent to the Editor.</li>
+      <li>Because page numbers (in the PDF) and a table of contents are generated for each volume, all papers from a single volume will be published at the same time. </li>
+      <li>Papers and all supplemental materials will be published under a Creative Commons Attribution 4.0 International license (CC-BY 4.0).</li>
+      <li>Papers should not directly include any materials that require a copyright release to publish them under a CC-BY 4.0 license.</li>
+      <li>The body of papers published in the Anthology should generally be between 2,500 and 7,500 words. Appendices and other additional materials will be included only in the PDF version of the article.</li>
+      <li>Contributions in all languages are welcome. Abstract translations into English are encouraged but not required.</li>
+      <li>The volume editors are invited to include an introductory article in the volume. It does not require peer review and will be indexed alongside all other papers in the volume.</li>
+      <li>Papers must be submitted in LaTeX, Markdown, or Word format. Papers must adhere to all formatting guidelines outlined in these templates.</li>
+      </ul>
+      <p>
+      The Editor may allow reasonable exceptions to the rules above on a case-by-case basis. Papers may be retracted and removed from the website (or initially rejected) by the Editor when there is substantial evidence of academic misconduct.
+      </p>
+
+
     </div>
   </section>
 
