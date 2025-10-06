@@ -6,6 +6,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % WORK OFF OF THE BASE ARTICLE CLASS
 \LoadClass[11pt]{article}
+\AtBeginDocument{%
+  \emergencystretch 2em
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LOAD ALL REQUIRED PACKAGES HERE
@@ -392,6 +395,7 @@
   style=numeric,
   giveninits=false,
   sortcites=true,
+  maxbibnames=10,
   backend=biber]{biblatex}
 \if@fra
   \RequirePackage[english, french]{babel}
@@ -432,6 +436,12 @@
 \DeclareFieldFormat[article]{journaltitle}{\mkbibemph{#1}}
 
 % Format volume and issue numbers according to MLA
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit*{}% <-- no dot/comma here; number format already adds ", no. "
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
 \DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
 \DeclareFieldFormat[article]{number}{, no. #1}
 
