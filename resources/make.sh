@@ -37,7 +37,7 @@ rm -rf ach-md-en
 mkdir ach-md-fr
 cp template-md/640x480.png ach-md-fr
 cp template-md/bibliography.bib ach-md-fr
-cp template-md/paper.md ach-md-fr
+cp template-md/paper-fr.md ach-md-fr
 zip -r ach-md-fr.zip ach-md-fr
 rm -rf ach-md-fr
 
