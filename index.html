@@ -112,6 +112,40 @@
       padding: 1.5rem;
       background-color: #f5f7fa;
     }
+
+    .table-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 600px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 8px 12px;
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    tr:first-child {
+      border-bottom: 3px solid black;
+    }
+
+    td:first-child, th:first-child {
+      width: 120px;
+      font-weight: bold;
+    }
+
+    td, th {
+      border-bottom: 1px solid #ddd;
+    }
+
   </style>
 </head>
 <body>
@@ -183,17 +217,36 @@
       <h3 class="title is-5 mt-5 mb-1">Information for Authors</h3>
 
       <p class="has-text-justified py-3">
-        The Anthology accepts papers written in LaTex, Word, or Markdown. Authors should using the following templates when submitting the final version of their work:
+        The Anthology accepts papers written in several different formats. We have standard templates for LaTex, Word, or Markdown available from the links below.  
       </p>
 
-      <ul class="has-text-justified px-5" style="list-style-type: circle; padding-left: 14px">
-        <li><b>LaTeX</b>: Template files are available for download at <a href="resources/anthology-ch.zip">anthology-ch.zip</a>, or using the pre-created <a href="https://www.overleaf.com/latex/templates/ach-proceedings-paper-template/znmzmfngrwpd">Overleaf template</a>. We also have a template <a href="resources/anthology-ch-fr.zip">translated into French</a>.</li>
-        <li><b>Markdown</b>: Template files for markdown submissions are available for download at <a href="resources/anthology-ch-md.zip">anthology-ch.zip</a>.</li>
-        <li><b>Word</b>: There is no specific template for Word files. If your conference supports it (please check), you may submit an ordinary word file and we will work together to convert it in the backend to one of the formats above. Please reach out if you have any questions</li>
-      </ul>
+      <div class="table-container">
+      <table>
+        <tr>
+          <th></th>
+          <th>English</th>
+          <th>French</th>
+        </tr>
+        <tr>
+          <td>LaTeX</td>
+          <td><a href="resources/ach-latex-en.zip"><b>ach-latex-en.zip</b></a></td>
+          <td><a href="resources/ach-latex-fr.zip"><b>ach-latex-fr.zip</b></a></td>
+        </tr>
+        <tr>
+          <td>Markdown</td>
+          <td><b><a href="resources/ach-md-en.zip">ach-md-en.zip</a></b></td>
+          <td><b><a href="resources/ach-md-fr.zip">ach-md-fr.zip</a></b></td>
+        </tr>
+        <tr>
+          <td>Word</td>
+          <td><b><a href="resources/ach-docx-en.zip">ach-docx-en.zip</a></b></td>
+          <td><b><a href="resources/ach-docx-fr.zip">ach-docx-fr.zip</a></b></td>
+        </tr>
+      </table>
+      </div>
 
       <p class="has-text-justified py-3">
-        Specific conferences may require a specific subset of these template and/or require additioanl conference-specific guidelines on length, anonymity, and bibliography formats.</a>. 
+        Check the CFP for your specific conference to see if there are details (such as prefered formats, length, required sections, anonymity, and the use of appendices) encoding in a conference-specific version of these files. If you are a conference organizer and would like to translate these into another language, please get in touch.
       </p>
 
     </div>
