@@ -1,48 +1,50 @@
 ---
-title: "Here is a Sample Paper Title"
+title: "Voici un exemple de titre d'article"
 authors:
-  - name: Author One
+  - name: Auteur Un
     affiliation: 
-      - "Some Department, Some University, Some City, Some Country"
-      - "Another Department, Another University, Another City, Another Country"
+      - "Un département, Une université, Une ville, Un pays"
     orcid: 0000-0000-0000-0000
-    email: author@university.com
-  - name: Author Two
-    affiliation: "Some Department, Some University, Some City, Some Country"
+    email: author1@local.fr
+  - name: Auteur Deux
+    affiliation: "Un département, Une université, Une ville, Un pays"
     orcid: 0000-0000-0000-0001
+    email: author2@local.fr
   - name: Author Three
-    affiliation: "Another Department, Another University, Another City, Another Country"
+    affiliation: "Un autre département, Une autre université, Une autre ville, Un autre pays"
     orcid: ""
 keywords: [computers, humanities proceedings]
 abstract: |
-  This Markdown template helps you typeset and format a paper for the ACH Anthology. The abstract of the paper here should be a one-paragraph summary of the outline and main contributions of the paper. Remember to change the keywords in the fields above and to fill in all of the relevant information for each author.
+  Ce modèle Markdown vous aide à composer et formater un article dans l'Anthologie d'ACH. En pratique, le résumé de l'article doit être un paragraphe rédigé en anglais synthétisant le plan et les principales contributions de l'article. 
 bibliography: bibliography.bib
 ---
 
 # Introduction
 
-Here is an example of the first section of the paper. All standard markdown
-formatting commands work as expected, such as *italic*, **bold**, and `code`.
+Voici un exemple de première section de l'article. Toutes les commandes de
+formatage Markdown standard fonctionnent comme prévu, telles que
+*italique*, **gras** et `code`
 
-You may modify this markdown file by renaming, deleting, or adding sections of
-your own and substituting our instructional text with the text of your paper. Add
-references to `bibliography.bib` as BibTeX entries. These can then be cited
-by using the format at the end of this sentence, namely the use of square
-brackets with an at sign followed by the resource key name
-[@tettoni2024discoverability]. You can also cite multiple papers together using
-the format at the end of this sentence [@barré2024latent; @levenson2024textual; @bambaci2024steps].
 
-## Details {#sec:intro_details}
+Vous pouvez modifier ce document en renommant, supprimant ou ajoutant vos
+propres sections et en remplaçant notre texte explicatif par celui de votre
+article. Ajoutez vos références bibliographiques dans `biblography.bib`
+au format BibTeX. Vous pouvez les citer comme à la fin de cette phrase
+[@tettoni2024discoverability]. Vous pouvez également citer plusieurs
+références comme indiqué ici [@barré2024latent; @levenson2024textual; @bambaci2024steps].
 
-You may also include subsections if they help organize your text, but they are not required. Use as many sections and subsections with whatever names work for your submission.
+## Détails {#sec:intro_details}
 
-# Elements
+Vous pouvez également inclure des sous-sections si elles aident à organiser votre texte, mais ce n'est pas obligatoire. Utilisez autant de sections et sous-sections que nécessaire avec les intitulés qui conviennent à votre soumission!
 
-## Tables
+# Éléments
 
-Tables can also be added to the document using the standard Markdown table
-format. Each table needs a unique label and caption. Below is an example of
-a table labeled as tbl:example along with a brief caption.
+## Tableaux
+
+Des tableaux peuvent également être ajoutés au document en utilisant le format
+de tableau standard. Chaque tableau doit avoir une étiquette unique et
+une légende. Vous trouverez ci-dessous (dans le code source) un exemple
+de code permettant de créer un tableau, accompagné d'une brève légende.
 
 | Column Name 1 | Column Name 2 |
 |---------------|---------------|
@@ -50,38 +52,40 @@ a table labeled as tbl:example along with a brief caption.
 | d1            | d2            |
 | d1            | d2            |
 
-Table: Example table and table caption. {#tbl:example}
+Tableau : Exemple de tableau et légende. {#tbl:example}
 
-The table can be referenced as [Table @tbl:example].
+Nous pouvons citer le [Tableau @tbl:example].
 
 ## Figures
 
-Figures can also be added to the document. As with tables, each figure needs
-a unique label and caption. The format is shown in the lines below. Figure
-files themselves should be included along with the submission. 
+Des figures peuvent également être ajoutées au document. Comme pour les
+tableaux, chaque figure doit être accompagnée d'une étiquette uniques et
+d'une légende. Le format est indiqué dans les lignes ci-dessous
+(dans le code source). Les fichiers des figures doivent être joints à la
+soumission.
 
-![Example figure and figure caption.](640x480.png){#fig:example width=40%}
+![Exemple de figure et légende.](640x480.png){#fig:example width=40%}
 
-A figure can be cited as [Figure @fig:example].
+Nous pouvons citer le Figure [Figure @fig:example].
 
 ## Equations
 
-We can include mathematical notations using LaTeX mathematical formatting,
-such as:
+Nous pouvons aussi inclure des notations mathématiques, par exemple :
 
 $$f(y) = x^2$$ {#eq:squared}
 
-The line number of the equation can be cited as [Equation @eq:squared].
+Le numéro de l'équation peut être cité comme [Équation @eq:squared].
 
 ## Other References
 
-Finally, you can also cite other sections or subsections of your paper using
-the tags that you have used at the end of each of the section titles: [Section @sec:intro_details].
+Enfin, vous pouvez également citer d'autres sections ou sous-sections de
+votre article en utilisant les balises que vous avez utilisées à la fin
+de chacun des titres de section : [Section @sec:intro_details].
 
-# References
+# Références
 
-<!-- Bibliography will be automatically generated here from the bibliography file -->
+<!-- La bibliographie sera automatiquement générée ici à partir du fichier bibliographique. -->
 
-# First Appendix Section {#sec:first-appendix}
+# Première section de l'annexe {#sec:first-appendix}
 
-Optional appendix sections can be included after the references section.
+Des annexes facultatives peuvent être ajoutées après la section des références. 
