@@ -89,6 +89,10 @@ h1 {
   border-bottom: 1pt #444 dotted;
 }
 
+h2 {
+  font-size: 1.1rem !important;
+}
+
 .paper-title {
   border: none;
 }
@@ -172,6 +176,7 @@ footer {
   font-size: 1.05rem;   /* ~16.5px */
   font-weight: 700;     /* bold */
   margin: 0 0 0.6rem 0;
+  width: 100%;
 }
 
 /* Keep each name + badge together */
