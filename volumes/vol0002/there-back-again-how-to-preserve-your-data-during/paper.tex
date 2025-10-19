@@ -7,6 +7,9 @@
 \usepackage{tabularx}
 \usepackage{minted}
 \usemintedstyle{manni}
+\usepackage{listings}
+\usepackage{float}
+\floatname{listing}{Listing}
 
 % TITLE OF THE SUBMISSION
 \title{There and back again---how to preserve your data during transformations}
@@ -91,7 +94,7 @@ The ResearchSpace data curation interface creates a custom XML formatted data du
     <entity public="true" object-class="PLACE" id="1001961">Salähiyya madrasa
 ...
 \end{minted}
- \captionof{listing}{XML file fragment with entity count (top), and Drupal entity count command (bottom) for entities of type PLACE.}
+ \caption{XML file fragment with entity count (top), and Drupal entity count command (bottom) for entities of type PLACE.}
 \label{code:xml-fragment}
 \end{listing}
 
@@ -101,7 +104,7 @@ $ drush views:execute count_entities count_entities_csv place
 count
 300
 \end{minted}
- \captionof{listing}{\texttt{drush} command to extract the count of Drupal entities by type.}
+ \caption{drush command to extract the count of Drupal entities by type.}
 \label{code:ismi-cnt}
 \end{listing}
 
@@ -138,7 +141,8 @@ for atag in soup.find_all('a'):
         # add to be processed later
         links.add(link)
 \end{minted}
-  \captionof{listing}{Python script fragment showing a loop processing all \texttt{a} tags in an HTML document and adding a processed item.}
+
+\caption{Python script fragment showing a loop processing all a tags in an HTML document and adding a processed item.}
   \label{code:echo-loop}
 \end{listing}
 
@@ -160,7 +164,7 @@ process_files(start_file, in_path, out_path, args)
 # check number of unprocessed items
 unprocessed_items = set(args.nav_struct.keys()) - args.processed_items
 \end{minted}
-  \captionof{listing}{Python script fragment with a highlighted set of processed items and set math to determine unprocessed items.}
+  \caption{Python script fragment with a highlighted set of processed items and set math to determine unprocessed items.}
   \label{code:echo-tracking}
 \end{listing}
 
@@ -214,7 +218,7 @@ options:
   --check-attribute-content
                         check attribute content (optional)
 \end{minted}
-  \captionof{listing}{Command line options for the Python model comparison tool \texttt{compare\_models}, including options to show more or less detailed differences or to ignore specific item, attribute, or relation types.}
+  \caption{Command line options for the Python model comparison tool compare\_models, including options to show more or less detailed differences or to ignore specific item, attribute, or relation types.}
   \label{code:ismi-compare}
 \end{listing}
 

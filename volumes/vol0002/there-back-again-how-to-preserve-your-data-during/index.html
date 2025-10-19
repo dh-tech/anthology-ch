@@ -43,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -73,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -92,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -150,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -292,16 +348,16 @@ data depends therefore on the correctness of the software. The
 importance of software and of the correctness of software for the
 Digital Humanities has been argued more generally in the context of
 improving software quality through code review <span class="citation"
-data-cites="damerow_code_2025"><a href="#ref-damerow_code_2025"
-role="doc-biblioref">[1]</a></span>. Code review and software tests as
+data-cites="damerow_code_2025">[<a href="#ref-damerow_code_2025"
+role="doc-biblioref">1</a>]</span>. Code review and software tests as
 another element of good practice in software engineering often
 concentrate on small pieces of code and test small units with synthetic
 pieces of data. Software testing typically starts with isolated unit
 testing followed by more encompassing integration testing and system
 testing <span class="citation"
-data-cites="leloudas_introduction_2023"><a
+data-cites="leloudas_introduction_2023">[<a
 href="#ref-leloudas_introduction_2023"
-role="doc-biblioref">[2]</a></span>. Testing data transformation
+role="doc-biblioref">2</a>]</span>. Testing data transformation
 integrity is not explicitly mentioned, but it could be considered a type
 of end-to-end or system test where full, real input data is compared
 with the transformed output.</p>
@@ -371,13 +427,35 @@ formatted data dump every night, which is imported into the Drupal
 website database. The import process is implemented using a bash script
 that extracts the entity count from the XML file for each entity type.
 In this case the script uses the existing <code>count</code> attribute
-in the custom XML format as seen in Listing , but it would also be
+in the custom XML format as seen in
+Listing <a href="#code:xml-fragment">1</a>, but it would also be
 possible to use an XML processor to count the relevant XML tags. After
 the import process the script runs a <code>drush</code> command to
 extract the count of Drupal entities of the same type using a custom
-view as seen in Listing  and compares the resulting numbers. The script
-then creates an error notification if the numbers for each entity type
-do not match.</p>
+view as seen in Listing <a href="#code:ismi-cnt">2</a> and compares the
+resulting numbers. The script then creates an error notification if the
+numbers for each entity type do not match.</p>
+<figure class="float listing" id="code:xml-fragment">
+<div class="float-body listing">
+<pre><code class="language-xml">&lt;openmind-data version="5.1"&gt;
+  &lt;entities count="300"&gt;
+    &lt;entity public="true" object-class="PLACE" id="1001961"&gt;Salähiyya madrasa
+...</code></pre>
+ 
+
+</div>
+<figcaption>Listing 1: XML file fragment with entity count (top), and Drupal entity count command (bottom) for entities of type PLACE.</figcaption>
+</figure>
+<figure class="float listing" id="code:ismi-cnt">
+<div class="float-body listing">
+<pre><code class="language-bash">$ drush views:execute count_entities count_entities_csv place
+count
+300</code></pre>
+ 
+
+</div>
+<figcaption>Listing 2: drush command to extract the count of Drupal entities by type.</figcaption>
+</figure>
 <h1 data-number="4"
 id="method-2-track-of-entities-during-transformation-steps"><span
 class="header-section-number">4</span> Method 2: Track of entities
@@ -401,19 +479,73 @@ The script reads the navigation hierarchy file and the raw HTML files
 and processes the HTML by comparing links to other HTML files within the
 navigation hierarchy data to create correct links, omit duplicated
 files, and find broken links.</p>
+<figure class="float listing" id="code:echo-loop">
+<div class="float-body listing">
+<pre><code class="language-python"># check all links
+links = set()
+nav_path = nav_item['echo_path']
+for atag in soup.find_all('a'):
+    if 'href' in atag.attrs:
+        link = atag['href'].strip()
+...
+        # process interactive map links
+        if 'onmouseover' in atag.attrs:
+            # get linked item from id
+            m = maplink_id_pattern.match(atag['id'])
+            if m:
+                nav_link = nav_path + '/' + m.group(1).replace(' ', '%20')
+                if nav_link in args.nav_struct:
+                    link_item = args.nav_struct[nav_link]
+                    if link_item['type'] == 'ECHO_resource':
+                        if 'link' in link_item and 'digilib.html?' in link_item['link']:
+                            # replace link to ECHO_resource linking to digilib
+                            atag['href'] = link_item['link']
+                            processed_items.add(nav_link)
+                            continue
+...                        
+        # add to be processed later
+        links.add(link)</code></pre>
+
+
+  
+</div>
+<figcaption>Listing 3: Python script fragment showing a loop processing all a tags in an HTML document and adding a processed item.</figcaption>
+</figure>
 <p>During the process the script keeps a list of processed HTML files,
-and the links in each file, indexed by URL, as a Python set. Listing 
-shows a part of the main loop running through all HTML <code>a</code>
-tags representing links in a document, fixing the links and adding the
-successfully processed links to the set of processed links.</p>
+and the links in each file, indexed by URL, as a Python set.
+Listing <a href="#code:echo-loop">3</a> shows a part of the main loop
+running through all HTML <code>a</code> tags representing links in a
+document, fixing the links and adding the successfully processed links
+to the set of processed links.</p>
+<figure class="float listing" id="code:echo-tracking">
+<div class="float-body listing">
+<pre><code class="language-python"># initialize processed_items with ignore_items
+args.processed_items = set(args.ignore_items)
+
+args.processed_files = set()
+# process files starting at index page
+start_file = args.echo_section + '/index.html'
+logging.info(f"start processing at {start_file}")
+start_file = args.html_files[start_file]
+# process files (modifies args.processed_items and args.processed_files)
+process_files(start_file, in_path, out_path, args)
+...
+# check number of unprocessed items
+unprocessed_items = set(args.nav_struct.keys()) - args.processed_items</code></pre>
+  
+  
+</div>
+<figcaption>Listing 4: Python script fragment with a highlighted set of processed items and set math to determine unprocessed items.</figcaption>
+</figure>
 <p>This makes it possible to compare the number of processed items to
 the expected total based on the navigation hierarchy data. Since files
 and links are identified by URL, processed links can be removed from the
 expected links in the navigation hierarchy using set operations to
-generate the set of unprocessed items, as shown in Listing . This method
-can therefore also show errors in cases where an HTML file name or link
-is different from the navigation structure URL, which a simple count
-would not reveal.</p>
+generate the set of unprocessed items, as shown in
+Listing <a href="#code:echo-tracking">4</a>. This method can therefore
+also show errors in cases where an HTML file name or link is different
+from the navigation structure URL, which a simple count would not
+reveal.</p>
 <h1 data-number="5"
 id="method-3-round-trip-entities-and-compare-to-the-source-format"><span
 class="header-section-number">5</span> Method 3: Round-trip entities and
@@ -450,7 +582,8 @@ role="doc-noteref"><sup>8</sup></a> tool and language to create RDF. To
 check the results of this transformation, I developed an additional
 transformation from RDF back into the original OpenMind data model and a
 comparison tool to show differences in the resulting data sets using
-Python. Figure  shows a diagram of the full process.</p>
+Python. Figure <a href="#fig:ismi-round-trip">1</a> shows a diagram of
+the full process.</p>
 <p>The ability to run this test was an invaluable asset during the
 development of the migration mapping. It allowed to find bugs in the
 initial mapping and to refactor the mapping incrementally to better
@@ -470,11 +603,45 @@ model.</figcaption>
 </figure>
 <p>The comparison tool has options to selectively enable or disable
 certain checks or exclude specific relation, attribute, or entity types
-as shown in Listing . These options were used during the development
-process to focus on specific areas of the transformation in order to not
-drown in thousands of unrelated error messages, particularly during the
-early phase of development. Watching the number of errors go down was
-also a satisfying measure of development progress.</p>
+as shown in Listing <a href="#code:ismi-compare">5</a>. These options
+were used during the development process to focus on specific areas of
+the transformation in order to not drown in thousands of unrelated error
+messages, particularly during the early phase of development. Watching
+the number of errors go down was also a satisfying measure of
+development progress.</p>
+<figure class="float listing" id="code:ismi-compare">
+<div class="float-body listing">
+<pre><code class="language-text">usage: compare_models.py [-h] [--version] [--ignore-nodes IGNORE_NODES]
+                         [--ignore-attributes IGNORE_ATTRIBUTES]
+                         [--ignore-relations IGNORE_RELATIONS] [--show-nodes] [--show-relations]
+                         [--show-attributes] [--check-attribute-content] [-l {INFO,DEBUG,ERROR}]
+                         file1 file2
+
+Compare two networkx graphs with ISMI data.
+
+positional arguments:
+  file1                 First networkx graph in gpickle format
+  file2                 Second networkx graph in gpickle format
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --ignore-nodes IGNORE_NODES
+                        list of node types to ignore (comma-separated)
+  --ignore-attributes IGNORE_ATTRIBUTES
+                        list of attributes to ignore on all entities (comma-separated)
+  --ignore-relations IGNORE_RELATIONS
+                        list of relations to ignore on all entities (comma-separated)
+  --show-nodes          show node differences in detail
+  --show-relations      show relation differences in detail
+  --show-attributes     show attribute differences in detail
+  --check-attribute-content
+                        check attribute content (optional)</code></pre>
+  
+  
+</div>
+<figcaption>Listing 5: Command line options for the Python model comparison tool compare\_models, including options to show more or less detailed differences or to ignore specific item, attribute, or relation types.</figcaption>
+</figure>
 <h1 data-number="6" id="conclusion"><span
 class="header-section-number">6</span> Conclusion</h1>
 <div id="tab:method-abilities">
@@ -517,9 +684,10 @@ result</td>
 <p>The three basic methods for testing data integrity presented here
 have different strengths and weaknesses and every developer needs to
 weigh these against the requirements of the individual project and the
-available development resources. Table  shows an overview of the methods
-and their ability to detect dropped or added or corrupted entities
-versus the implementation complexity.</p>
+available development resources.
+Table <a href="#tab:method-abilities">1</a> shows an overview of the
+methods and their ability to detect dropped or added or corrupted
+entities versus the implementation complexity.</p>
 <p>Creating and running different kinds of tests has become an integral
 part of good practice of software development in general. Tests let you
 trust your own code during and after active development. Tests also let
@@ -541,22 +709,21 @@ class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-damerow_code_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">J.
-Damerow, R. S. Koeser, J. C. Carver, and M. Vogl, <span>“Code review in
-digital humanities,”</span> <em>Digital Scholarship in the
-Humanities</em>, vol. 40, no. Supplement_1, pp. i18–i26, Jan. 2025, doi:
-<a
-href="https://doi.org/10.1093/llc/fqae052">10.1093/llc/fqae052</a>.</div>
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Damerow J, Koeser RS, Carver JC, Vogl M. Code
+review in digital humanities. Digital Scholarship in the Humanities
+2025;40:i18–26. <a
+href="https://doi.org/10.1093/llc/fqae052">https://doi.org/10.1093/llc/fqae052</a>.</div>
 </div>
 <div id="ref-leloudas_introduction_2023" class="csl-entry"
 role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">P.
-Leloudas, <em>Introduction to <span>Software</span>
-<span>Testing</span>: <span>A</span> <span>Practical</span>
-<span>Guide</span> to <span>Testing</span>, <span>Design</span>,
-<span>Automation</span>, and <span>Execution</span></em>. Berkeley, CA:
-Apress, 2023. doi: <a
-href="https://doi.org/10.1007/978-1-4842-9514-4">10.1007/978-1-4842-9514-4</a>.</div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Leloudas P. Introduction to
+<span>Software</span> <span>Testing</span>: <span>A</span>
+<span>Practical</span> <span>Guide</span> to <span>Testing</span>,
+<span>Design</span>, <span>Automation</span>, and
+<span>Execution</span>. Berkeley, CA: Apress; 2023. <a
+href="https://doi.org/10.1007/978-1-4842-9514-4">https://doi.org/10.1007/978-1-4842-9514-4</a>.</div>
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
@@ -655,8 +822,8 @@ href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';

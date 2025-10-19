@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Historical data visual exploration meets static web technologies</title>
+  <title>There and back again—how to preserve your data during transformations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,26 +12,26 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/">
-  <meta name="citation_title" content="Historical data visual exploration meets static web technologies">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
   <meta name="citation_volume" content="2">
-  <meta name="citation_firstpage" content="25">
-  <meta name="citation_lastpage" content="31">
-  <meta name="citation_doi" content="10.63744/K0GZLdLczoqm">
-  <meta name="citation_author" content="Girard, Paul">
+  <meta name="citation_firstpage" content="6">
+  <meta name="citation_lastpage" content="12">
+  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
+  <meta name="citation_author" content="Casties, Robert">
   
   <meta name="citation_editor" content="Damerow, Julia">
   <meta name="citation_editor" content="Koeser, Rebecca Sutton">
   
-  <meta name="citation_abstract" content="Abstract The Reg⋅Arts project delivers a serverless web app to explore 12,000 digitized student records (1813–1968) from the École des beaux-arts de Paris, using client-side faceted search, historical maps, and network visualizations. By compressing data and employing static vector tiles, it avoids the back-end infrastructure while ensuring historical accuracy and low maintenance. This approach demonstrates how static web technologies can support sustainable, user-friendly digital humanities tools.">
+  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="Historical map; Vector map; Static web; Art History">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/10.63744@K0GZLdLczoqm.pdf">
+  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
@@ -43,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -73,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -92,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -150,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -298,8 +354,8 @@ web server.</p>
 complexity and long-term server operation maintenance requirements - a
 critical advantage in academic contexts, where human and technical
 resources for sustained web application support are often limited <span
-class="citation" data-cites="wikle_static_2025"><a
-href="#ref-wikle_static_2025" role="doc-biblioref">[1]</a></span>. It
+class="citation" data-cites="wikle_static_2025">[<a
+href="#ref-wikle_static_2025" role="doc-biblioref">1</a>]</span>. It
 also enables the use of inexpensive or even free shared hosting
 services.</p>
 <p>It is important to clarify that the term “static” does not imply the
@@ -537,8 +593,8 @@ recruitment networks.</p>
 compelling approach for many use cases. However, it imposes technical
 constraints that require adapting both usage and design. Adopting a
 “minimal” mindset is essential <span class="citation"
-data-cites="risam_introduction_2022"><a
-href="#ref-risam_introduction_2022" role="doc-biblioref">[2]</a></span>:
+data-cites="risam_introduction_2022">[<a
+href="#ref-risam_introduction_2022" role="doc-biblioref">2</a>]</span>:
 it encourages data size limitations and may necessitate sacrificing
 advanced features. In our case fuzzy full-text search was dropped in
 favor of the simpler yet sufficient regex search. Developers must also
@@ -556,20 +612,18 @@ digital humanities.</p>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-wikle_static_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">O.
-Wikle and E. P. Williamson, <span>“Static <span>Web</span>
-<span>Methodology</span> as a <span>Sustainable</span>
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Wikle O, Williamson EP. <a
+href="https://journal.code4lib.org/articles/18372">Static
+<span>Web</span> <span>Methodology</span> as a <span>Sustainable</span>
 <span>Approach</span> to <span>Digital</span> <span>Humanities</span>
-<span>Projects</span>,”</span> <em>The Code4Lib Journal</em>, no. 60,
-Apr. 2025, Accessed: Oct. 13, 2025. [Online]. Available: <a
-href="https://journal.code4lib.org/articles/18372">https://journal.code4lib.org/articles/18372</a></div>
+<span>Projects</span></a>. The Code4Lib Journal 2025.</div>
 </div>
 <div id="ref-risam_introduction_2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">R.
-Risam and A. Gil, <span>“Introduction: <span>The</span>
-<span>Questions</span> of <span>Minimal</span>
-<span>Computing</span>,”</span> <em>Digital Humanities Quarterly</em>,
-vol. 16, no. 2, June 2022.</div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Risam R, Gil A. Introduction: <span>The</span>
+<span>Questions</span> of <span>Minimal</span> <span>Computing</span>.
+Digital Humanities Quarterly 2022;016.</div>
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
@@ -688,8 +742,8 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';

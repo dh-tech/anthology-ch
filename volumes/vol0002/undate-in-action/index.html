@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undate in Action</title>
+  <title>There and back again—how to preserve your data during transformations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,26 +12,26 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/undate-in-action/">
-  <meta name="citation_title" content="Undate in Action">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/undate-in-action/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
   <meta name="citation_volume" content="2">
-  <meta name="citation_firstpage" content="38">
-  <meta name="citation_lastpage" content="53">
-  <meta name="citation_doi" content="10.63744/SFtXXpIE4ERh">
-  <meta name="citation_author" content="Koeser, Rebecca Sutton">
+  <meta name="citation_firstpage" content="6">
+  <meta name="citation_lastpage" content="12">
+  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
+  <meta name="citation_author" content="Casties, Robert">
   
   <meta name="citation_editor" content="Damerow, Julia">
   <meta name="citation_editor" content="Koeser, Rebecca Sutton">
   
-  <meta name="citation_abstract" content="Abstract This paper provides an introduction to the undate python library with an emphasis on demonstrating supported functionality with some example use cases from specific projects. undate is designed for working with uncertain and partially known dates, and also includes support for dates in multiple calendars and with mixed precision. This paper provides an overview of the basic functionality with comparison to the Python built-in datetime.date, demonstrating support for missing and partially known values. Use cases and data from Princeton Geniza Project and Shakespeare and Company Project are used to further demonstrate the value and practical application of undate for parsing and comparing mixed precision dates in multiple calendars, and for calculating and plotting durations for events with known days but unknown years. This paper was originally presented as a “tool presentation” at the Digital Humanities Tech Symposium at DH2025.">
+  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="dates; calendars; partial information; missing data; software; digital humanities; python">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/undate-in-action/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/undate-in-action/10.63744@SFtXXpIE4ERh.pdf">
+  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
@@ -43,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -73,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -92,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -150,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -276,24 +332,24 @@ Humanities Tech Symposium at DH2025.</p>
 class="header-section-number">1</span> Introduction</h1>
 <p><code>undate</code> is a python library for working with uncertain or
 partially known dates, with support for multiple calendars <span
-class="citation" data-cites="koeser_undate_python_2025"><a
+class="citation" data-cites="koeser_undate_python_2025">[<a
 href="#ref-koeser_undate_python_2025"
-role="doc-biblioref">[1]</a></span>. It is “an ambitious in-progress
+role="doc-biblioref">1</a>]</span>. It is “an ambitious in-progress
 effort to develop a pragmatic Python package for the computation and
 analysis of temporal information in humanistic and cultural data, with a
 particular emphasis on uncertain, incomplete or imprecise dates and with
 support for multiple calendaring systems and date formats” <span
-class="citation" data-cites="koeser_undate_2025"><a
-href="#ref-koeser_undate_2025" role="doc-biblioref">[2]</a></span>. The
+class="citation" data-cites="koeser_undate_2025">[<a
+href="#ref-koeser_undate_2025" role="doc-biblioref">2</a>]</span>. The
 software is freely available on GitHub<a href="#fn1"
 class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and
 published under an open source software license. This project was
 originally started at a DHTech Hackathon <span class="citation"
-data-cites="koeser_join_2023"><a href="#ref-koeser_join_2023"
-role="doc-biblioref">[3]</a></span>, and builds on experiences from
-other digital humanities projects. The ultimate goal is to build an
-active community of people that are using and maintaining the project,
-and developing it further.</p>
+data-cites="koeser_join_2023">[<a href="#ref-koeser_join_2023"
+role="doc-biblioref">3</a>]</span>, and builds on experiences from other
+digital humanities projects. The ultimate goal is to build an active
+community of people that are using and maintaining the project, and
+developing it further.</p>
 <figure id="fig:logo" data-latex-placement="h">
 <a href="figures/undate_logo.png" data-lightbox="figures" data-title="Figure 1: undate project logo."><img
 src="figures/undate_logo.png" style="width:40.0%" /></a>
@@ -303,10 +359,11 @@ src="figures/undate_logo.png" style="width:40.0%" /></a>
 software development methodologies that inform the project, and a
 comparison with related software, I encourage you to read the software
 paper “Undate: humanistic dates for computation” <span class="citation"
-data-cites="koeser_undate_2025"><a href="#ref-koeser_undate_2025"
-role="doc-biblioref">[2]</a></span>. The logo (Figure ) was designed as
-a reminder of the competing needs for nuanced human-readable information
-and computationally tractable data.</p>
+data-cites="koeser_undate_2025">[<a href="#ref-koeser_undate_2025"
+role="doc-biblioref">2</a>]</span>. The logo (Figure
+<a href="#fig:logo">1</a>) was designed as a reminder of the competing
+needs for nuanced human-readable information and computationally
+tractable data.</p>
 <h2 data-number="1.1" id="sec:intro_details"><span
 class="header-section-number">1.1</span> How is <code>Undate</code> like
 <code>datetime.date</code>?</h2>
@@ -522,8 +579,8 @@ and calendar conversion and mixed precision dates in the <em>Princeton
 Geniza Project</em> (PGP). Calendar logic and representation is
 additionally informed by work on the <em>Islamic Scientific Manuscripts
 Initiative</em> (ISMI)” <span class="citation"
-data-cites="koeser_undate_2025"><a href="#ref-koeser_undate_2025"
-role="doc-biblioref">[2]</a></span>.</p>
+data-cites="koeser_undate_2025">[<a href="#ref-koeser_undate_2025"
+role="doc-biblioref">2</a>]</span>.</p>
 <h2 data-number="3.1" id="princeton-geniza-project"><span
 class="header-section-number">3.1</span> Princeton Geniza Project</h2>
 <p>The <a href="https://geniza.princeton.edu/"><em>Princeton Geniza
@@ -540,16 +597,17 @@ Gregorian calendar.</p>
 <code>undate</code>, due to this need to support storing, filtering, and
 searching dates from multiple calendars, with mixed precision, and
 various kinds of temporal uncertainty <span class="citation"
-data-cites="rustow_dating_2020"><a href="#ref-rustow_dating_2020"
-role="doc-biblioref">[4]</a></span>. Here, I use data from the published
+data-cites="rustow_dating_2020">[<a href="#ref-rustow_dating_2020"
+role="doc-biblioref">4</a>]</span>. Here, I use data from the published
 PGP datasets <span class="citation"
-data-cites="rustow_princeton_2025"><a href="#ref-rustow_princeton_2025"
-role="doc-biblioref">[5]</a></span> to demonstrate <code>undate</code>
+data-cites="rustow_princeton_2025">[<a href="#ref-rustow_princeton_2025"
+role="doc-biblioref">5</a>]</span> to demonstrate <code>undate</code>
 calendar parsing and conversion functionality.</p>
 <p>An <code>Undate</code> instance preserves any initial values for
-year, month, and day in the original calendar. As you see in Table , the
-ISO format <code>Undate</code> corresponds to the original date rather
-than the standardized date.</p>
+year, month, and day in the original calendar. As you see in Table
+<a href="#tab:pgp-parsed-dates">1</a>, the ISO format
+<code>Undate</code> corresponds to the original date rather than the
+standardized date.</p>
 <div id="tab:pgp-parsed-dates">
 <table>
 <caption>Table 1: A sampling of dates from PGP documents in different
@@ -835,14 +893,15 @@ days when working with multiple calendars.</caption>
 </div>
 <p>Preserving available details in mixed precision dates offers new
 opportunities for analysis; for instance, we can analyze weekday
-frequency by document type (Figure ). In the PGP data, Legal documents
-and letters are the types of documents most likely to have a clear date.
-When visualized with a heatmap, the results match our expectations:
-Saturday is light for both types, because it is the Hebrew Shabbat, a
-day of rest. Monday and Thursday are the traditional convening days for
-court sessions, which is reflected in the preponderance of Legal
-documents on those days.<a href="#fn3" class="footnote-ref" id="fnref3"
-role="doc-noteref"><sup>3</sup></a></p>
+frequency by document type (Figure
+<a href="#fig:pgp-weekday-frequency">2</a>). In the PGP data, Legal
+documents and letters are the types of documents most likely to have a
+clear date. When visualized with a heatmap, the results match our
+expectations: Saturday is light for both types, because it is the Hebrew
+Shabbat, a day of rest. Monday and Thursday are the traditional
+convening days for court sessions, which is reflected in the
+preponderance of Legal documents on those days.<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <figure id="fig:pgp-weekday-frequency" data-latex-placement="h">
 <a href="figures/pgp_letters_legaldocs_weekday.png" data-lightbox="figures" data-title="Figure 2: Legal documents and letters frequency by weekday. "><img
 src="figures/pgp_letters_legaldocs_weekday.png"
@@ -860,18 +919,19 @@ in the 1920s and 1930s. This project is one of the precursors that fed
 into the development of <code>undate</code>, with an implementation to
 support incomplete dates written on handwritten cards <span
 class="citation"
-data-cites="kotin_shakespeare_2022 koeser_coding_2019"><a
-href="#ref-kotin_shakespeare_2022" role="doc-biblioref">[6]</a>, <a
-href="#ref-koeser_coding_2019" role="doc-biblioref">[7]</a></span>.</p>
+data-cites="kotin_shakespeare_2022 koeser_coding_2019">[<a
+href="#ref-koeser_coding_2019" role="doc-biblioref">7</a>,<a
+href="#ref-kotin_shakespeare_2022"
+role="doc-biblioref">6</a>]</span>.</p>
 <figure id="fig:stein-lending-card" data-latex-placement="h">
 <a href="figures/stein_lendingcard_unknownyear.jpg" data-lightbox="figures" data-title="Figure 3: Detail from Gertrude Stein’s lending library card showing handwritten borrow events with no year. [@stein_beachpapers_pul; @noauthor_gertrude_nodate] "><img
 src="figures/stein_lendingcard_unknownyear.jpg"
 style="width:70.0%" /></a>
 <figcaption>Figure 3: Detail from Gertrude Stein’s lending library card
 showing handwritten borrow events with no year. <span class="citation"
-data-cites="stein_beachpapers_pul noauthor_gertrude_nodate"><a
-href="#ref-stein_beachpapers_pul" role="doc-biblioref">[8]</a>, <a
-href="#ref-noauthor_gertrude_nodate" role="doc-biblioref">[9]</a></span>
+data-cites="stein_beachpapers_pul noauthor_gertrude_nodate">[<a
+href="#ref-stein_beachpapers_pul" role="doc-biblioref">8</a>,<a
+href="#ref-noauthor_gertrude_nodate" role="doc-biblioref">9</a>]</span>
 </figcaption>
 </figure>
 <div id="tab:stein-borrowing">
@@ -990,7 +1050,8 @@ Meredith</em></td>
 <code>undate</code> we can calculate how long a book was borrowed even
 when we don’t know the exact year. We use Gertrude Stein as an example
 here, since she is a well known figure with documented borrowing
-activity without known years (Figure ), although she is far from the
+activity without known years (Figure
+<a href="#fig:stein-lending-card">3</a>), although she is far from the
 only one.<a href="#fn4" class="footnote-ref" id="fnref4"
 role="doc-noteref"><sup>4</sup></a> Stein has 46 borrow events with
 calculable duration; of those 7, or 15%, have no known year. If we limit
@@ -1005,11 +1066,12 @@ start date). This is based on our assumption that the clerks working in
 the book shop would have noted the year if the book was out for a longer
 time period, as they did in other cases.</p>
 <p>The full code used to calculate durations and plot them is available
-in Appendix . Here we show a sample of the parsed borrow events (Table )
-and a raincloud plot of Stein’s borrowing (Figure ) to demonstrate the
-value of including partial information in our analysis. As you can see,
-leaving out partially known dates would greatly change the
-distribution.</p>
+in Appendix . Here we show a sample of the parsed borrow events (Table
+<a href="#tab:stein-borrowing">3</a>) and a raincloud plot of Stein’s
+borrowing (Figure <a href="#fig:stein-borrow-raincloud">4</a>) to
+demonstrate the value of including partial information in our analysis.
+As you can see, leaving out partially known dates would greatly change
+the distribution.</p>
 <figure id="fig:stein-borrow-raincloud" data-latex-placement="t!">
 <a href="figures/shxco_stein_borrows.png" data-lightbox="figures" data-title="Figure 4: Raincloud plot showing how long Gertrude Stein typically kept the books she borrowed. Borrows with unknown years are highlighted in orange in the lower portion (the “rain”) of the plot. "><img
 src="figures/shxco_stein_borrows.png" /></a>
@@ -1031,8 +1093,8 @@ CIDOC-CRM), and improve the support for ambiguity and granularity in
 parsing and date precisions. Other avenues of interest are representing
 the temporal uncertainty in data visualizations based on
 <code>undate</code> parsing and analysis <span class="citation"
-data-cites="yau_visualizing_2018"><a href="#ref-yau_visualizing_2018"
-role="doc-biblioref">[10]</a></span>, or making more use of labels for
+data-cites="yau_visualizing_2018">[<a href="#ref-yau_visualizing_2018"
+role="doc-biblioref">10</a>]</span>, or making more use of labels for
 analysis. Development on <code>undate</code> input and use cases from
 the community to steer and prioritize the work, to ensure that work is
 interpretable and usable in the context of a specific project while
@@ -1223,8 +1285,8 @@ year was known, which we’ll use when plotting the data</p></li>
 </ul>
 <p>We load the full events data from the Shakespeare and Company
 published datasets <span class="citation"
-data-cites="koeser_shakespeare_2025"><a
-href="#ref-koeser_shakespeare_2025" role="doc-biblioref">[11]</a></span>
+data-cites="koeser_shakespeare_2025">[<a
+href="#ref-koeser_shakespeare_2025" role="doc-biblioref">11</a>]</span>
 and filter it to borrow events for Gertrude Stein based on
 <code>event_type</code> and <code>member_ids</code>. Then we use the
 custom methods defined first to calculate borrow durations and add a
@@ -1234,8 +1296,8 @@ showing the distribution of borrow durations in two different ways, and
 color the rain drops in the lower portion of the plot to highlight the
 durations based on borrow events with unknown years. (The raincloud plot
 is adapted from prior work in <span class="citation"
-data-cites="koeser_missing_2024"><a href="#ref-koeser_missing_2024"
-role="doc-biblioref">[12]</a></span>.)</p>
+data-cites="koeser_missing_2024">[<a href="#ref-koeser_missing_2024"
+role="doc-biblioref">12</a>]</span>.)</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1372,87 +1434,85 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a h
 role="list">
 <div id="ref-koeser_undate_python_2025" class="csl-entry"
 role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.
-S. Koeser, C. Crawford, J. Damerow, M. Vogl, and R. Casties,
-<span>“Undate python library.”</span> Zenodo, July 2025. doi: <a
-href="https://doi.org/10.5281/zenodo.11068867">10.5281/zenodo.11068867</a>.</div>
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Koeser RS, Crawford C, Damerow J, Vogl M,
+Casties R. Undate python library 2025. <a
+href="https://doi.org/10.5281/zenodo.11068867">https://doi.org/10.5281/zenodo.11068867</a>.</div>
 </div>
 <div id="ref-koeser_undate_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">R.
-S. Koeser, J. Damerow, R. Casties, and C. Crawford, <span>“Undate:
-Humanistic dates for computation,”</span> <em>Computational Humanities
-Research</em>, vol. 1, p. e5, 2025, doi: <a
-href="https://doi.org/10.1017/chr.2025.10006">10.1017/chr.2025.10006</a>.</div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Koeser RS, Damerow J, Casties R, Crawford C.
+Undate: Humanistic dates for computation. Computational Humanities
+Research 2025;1:e5. <a
+href="https://doi.org/10.1017/chr.2025.10006">https://doi.org/10.1017/chr.2025.10006</a>.</div>
 </div>
 <div id="ref-koeser_join_2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">R.
-S. Koeser, <span>“Join me for a <span>DHTech</span> hackathon?
-<span>It</span>’s an un-date!”</span> <em>DHTech</em>. Feb. 2023.
-Available: <a
-href="https://dh-tech.github.io/blog/2023/02/09/hackathon-undate/">https://dh-tech.github.io/blog/2023/02/09/hackathon-undate/</a></div>
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">Koeser RS. <a
+href="https://dh-tech.github.io/blog/2023/02/09/hackathon-undate/">Join
+me for a <span>DHTech</span> hackathon? <span>It</span>’s an
+un-date!</a> DHTech 2023.</div>
 </div>
 <div id="ref-rustow_dating_2020" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">M.
-Rustow, <span>“Dating <span>Problems</span>? <span>Ask</span> the
-<span>Princeton</span> <span>Geniza</span> <span>Project</span>
-<span>Team</span>,”</span> <em>The Center for Digital Humanities at
-Princeton</em>. Nov. 2020. Available: <a
-href="https://cdh.princeton.edu/blog/2020/11/18/dating-problems-ask-princeton-geniza-project-team/">https://cdh.princeton.edu/blog/2020/11/18/dating-problems-ask-princeton-geniza-project-team/</a></div>
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">Rustow M. <a
+href="https://cdh.princeton.edu/blog/2020/11/18/dating-problems-ask-princeton-geniza-project-team/">Dating
+<span>Problems</span>? <span>Ask</span> the <span>Princeton</span>
+<span>Geniza</span> <span>Project</span> <span>Team</span></a>. The
+Center for Digital Humanities at Princeton 2020.</div>
 </div>
 <div id="ref-rustow_princeton_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">M.
-Rustow, R. S. Koeser, R. Richman, K. Ryzhova, A. Bensalim, and A.
-Mohamed, <span>“Princeton <span>Geniza</span> <span>Project</span>
-<span>Dataset</span>.”</span> Zenodo, July 2025. doi: <a
-href="https://doi.org/10.5281/zenodo.15839055">10.5281/zenodo.15839055</a>.</div>
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">Rustow M, Koeser RS, Richman R, Ryzhova K,
+Bensalim A, Mohamed A. Princeton <span>Geniza</span>
+<span>Project</span> <span>Dataset</span> 2025. <a
+href="https://doi.org/10.5281/zenodo.15839055">https://doi.org/10.5281/zenodo.15839055</a>.</div>
 </div>
 <div id="ref-kotin_shakespeare_2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">J.
-Kotin and R. S. Koeser, <span>“Shakespeare and <span>Company</span>
-<span>Project</span> <span>Data</span> <span>Sets</span>,”</span>
-<em>Journal of Cultural Analytics</em>, vol. 7, no. 1, Feb. 2022, doi:
-<a
-href="https://doi.org/10.22148/001c.32551">10.22148/001c.32551</a>.</div>
+<div class="csl-left-margin">[6] </div><div
+class="csl-right-inline">Kotin J, Koeser RS. Shakespeare and
+<span>Company</span> <span>Project</span> <span>Data</span>
+<span>Sets</span>. Journal of Cultural Analytics 2022;7. <a
+href="https://doi.org/10.22148/001c.32551">https://doi.org/10.22148/001c.32551</a>.</div>
 </div>
 <div id="ref-koeser_coding_2019" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">R.
-S. Koeser, <span>“Coding with <span>Unknowns</span>,”</span> <em>Center
-for Digital Humanities at Princeton University</em>. Dec. 2019.
-Available: <a
-href="https://cdh.princeton.edu/blog/2019/12/05/coding-unknowns/">https://cdh.princeton.edu/blog/2019/12/05/coding-unknowns/</a></div>
+<div class="csl-left-margin">[7] </div><div
+class="csl-right-inline">Koeser RS. <a
+href="https://cdh.princeton.edu/blog/2019/12/05/coding-unknowns/">Coding
+with <span>Unknowns</span></a>. Center for Digital Humanities at
+Princeton University 2019.</div>
 </div>
 <div id="ref-stein_beachpapers_pul" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S.
-Beach, <span>“Stein, gertrude; sylvia beach papers.”</span> Manuscripts
-Division, Department of Special Collections, Princeton University
-Library.</div>
+<div class="csl-left-margin">[8] </div><div
+class="csl-right-inline">Beach S. Stein, gertrude; sylvia beach papers
+n.d.</div>
 </div>
 <div id="ref-noauthor_gertrude_nodate" class="csl-entry"
 role="listitem">
-<div class="csl-left-margin">[9] </div><div
-class="csl-right-inline"><span>“Gertrude <span>Stein</span>,”</span>
-<em>Shakespeare and Company Project</em>. Available: <a
-href="https://shakespeareandco.princeton.edu/members/stein-gertrude/">https://shakespeareandco.princeton.edu/members/stein-gertrude/</a></div>
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline"><a
+href="https://shakespeareandco.princeton.edu/members/stein-gertrude/">Gertrude
+<span>Stein</span></a>. Shakespeare and Company Project n.d.</div>
 </div>
 <div id="ref-yau_visualizing_2018" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[10] </div><div class="csl-right-inline">N.
-Yau, <span>“Visualizing the <span>Uncertainty</span> in
-<span>Data</span>,”</span> <em>FlowingData</em>. Jan. 2018. Available:
-<a
-href="https://flowingdata.com/2018/01/08/visualizing-the-uncertainty-in-data/">https://flowingdata.com/2018/01/08/visualizing-the-uncertainty-in-data/</a></div>
+<div class="csl-left-margin">[10] </div><div
+class="csl-right-inline">Yau N. <a
+href="https://flowingdata.com/2018/01/08/visualizing-the-uncertainty-in-data/">Visualizing
+the <span>Uncertainty</span> in <span>Data</span></a>. FlowingData
+2018.</div>
 </div>
 <div id="ref-koeser_shakespeare_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">R.
-S. Koeser and J. Kotin, <span>“Shakespeare and <span>Company</span>
-<span>Project</span> <span>Datasets</span>.”</span> 2025. Available: <a
-href="https://doi.org/10.34770/kf6c-b079">https://doi.org/10.34770/kf6c-b079</a></div>
+<div class="csl-left-margin">[11] </div><div
+class="csl-right-inline">Koeser RS, Kotin J. <a
+href="https://doi.org/10.34770/kf6c-b079">Shakespeare and
+<span>Company</span> <span>Project</span> <span>Datasets</span></a>
+2025.</div>
 </div>
 <div id="ref-koeser_missing_2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[12] </div><div class="csl-right-inline">R.
-S. Koeser and Z. LeBlanc, <span>“Missing <span>Data</span>,
-<span>Speculative</span> <span>Reading</span>,”</span> <em>Journal of
-Cultural Analytics</em>, vol. 9, no. 2, May 2024, doi: <a
-href="https://doi.org/10.22148/001c.116926">10.22148/001c.116926</a>.</div>
+<div class="csl-left-margin">[12] </div><div
+class="csl-right-inline">Koeser RS, LeBlanc Z. Missing
+<span>Data</span>, <span>Speculative</span> <span>Reading</span>.
+Journal of Cultural Analytics 2024;9. <a
+href="https://doi.org/10.22148/001c.116926">https://doi.org/10.22148/001c.116926</a>.</div>
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
@@ -1467,8 +1527,8 @@ includes modifiers not yet supported by <code>undate</code>, which were
 ignored during parsing.<a href="#fnref2" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Analysis and visualization adapted from prior work.
-<span class="citation" data-cites="koeser_undate_2025"><a
-href="#ref-koeser_undate_2025" role="doc-biblioref">[2]</a></span><a
+<span class="citation" data-cites="koeser_undate_2025">[<a
+href="#ref-koeser_undate_2025" role="doc-biblioref">2</a>]</span><a
 href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Stein is famous enough that these unknowns could perhaps
 be resolved through research; that is not the case for the lesser known
@@ -1537,8 +1597,8 @@ role="doc-backlink">↩︎</a></p></li>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';

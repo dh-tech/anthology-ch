@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introducing the Anthology for Computers and the Humanities</title>
+  <title>There and back again—how to preserve your data during transformations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,32 +12,26 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0001/introducing-anthology-for-computers-humanities/">
-  <meta name="citation_title" content="Introducing the Anthology for Computers and the Humanities">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0001/introducing-anthology-for-computers-humanities/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
-  <meta name="citation_volume" content="1">
-  <meta name="citation_firstpage" content="1">
-  <meta name="citation_lastpage" content="5">
-  <meta name="citation_doi" content="10.63744/HHsQG7hNWyxG">
-  <meta name="citation_author" content="Arnold, Taylor">
-  <meta name="citation_author" content="Antoniak, Maria">
-  <meta name="citation_author" content="Varela, Miguel Escobar">
-  <meta name="citation_author" content="Puren, Marie">
-  <meta name="citation_author" content="Oiva, Mila">
-  <meta name="citation_author" content="Regan, Amanda">
-  <meta name="citation_author" content="Tilton, Lauren">
-  <meta name="citation_author" content="Walsh, Melanie">
+  <meta name="citation_volume" content="2">
+  <meta name="citation_firstpage" content="6">
+  <meta name="citation_lastpage" content="12">
+  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
+  <meta name="citation_author" content="Casties, Robert">
   
-  <meta name="citation_editor" content="—, ">
+  <meta name="citation_editor" content="Damerow, Julia">
+  <meta name="citation_editor" content="Koeser, Rebecca Sutton">
   
-  <meta name="citation_abstract" content="Abstract We present the Anthology of Computers and the Humanities, a new publication designed to host open-access, peer-reviewed proceedings from digital humanities (broadly defined) conferences and workshops. The Anthology provides a home for conference proceedings, offering essential structures such as DOIs and searchability, while being explicitly attuned to the needs of research situated in humanities disciplines.">
+  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="digital humanities; open access; open data; proceedings">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0001/introducing-anthology-for-computers-humanities/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0001/introducing-anthology-for-computers-humanities/10.63744@HHsQG7hNWyxG.pdf">
+  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
@@ -49,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -79,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -98,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -156,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -331,13 +381,13 @@ typically do not go through extensive third-party copyediting. These
 features make proceedings ideal for quickly disseminating research in an
 open platform.</p>
 <p>The role of conference proceedings differs significantly across
-fields <span class="citation" data-cites="kochetkov2021importance"><a
-href="#ref-kochetkov2021importance" role="doc-biblioref">[1]</a></span>.
+fields <span class="citation" data-cites="kochetkov2021importance">[<a
+href="#ref-kochetkov2021importance" role="doc-biblioref">1</a>]</span>.
 In many social sciences domains, proceedings are considered precursors
 to longer papers in journals, with proceedings treated as working drafts
 rather than independent publications <span class="citation"
-data-cites="lisee2008conference"><a href="#ref-lisee2008conference"
-role="doc-biblioref">[2]</a></span>. Proceedings from mathematics and
+data-cites="lisee2008conference">[<a href="#ref-lisee2008conference"
+role="doc-biblioref">2</a>]</span>. Proceedings from mathematics and
 statistics conferences, when produced, are often treated as
 supplementary details that contain technical proofs and information that
 cannot be included in the presentations themselves. Within some
@@ -345,8 +395,8 @@ subfields of philology and linguistics, proceedings are edited,
 published, and "counted" as equivalent to chapters in edited volumes. In
 computer science, proceedings have taken a particularly prominent role
 in their respective fields <span class="citation"
-data-cites="vrettas2015conferences"><a
-href="#ref-vrettas2015conferences" role="doc-biblioref">[3]</a></span>.
+data-cites="vrettas2015conferences">[<a
+href="#ref-vrettas2015conferences" role="doc-biblioref">3</a>]</span>.
 Across almost every subfield of computer science, papers published in
 conferences have become the de facto form of publication over the past
 several decades.</p>
@@ -364,8 +414,8 @@ similar structures within their respective fields. Platforms provided by
 scholarly associations typically offer many of the same bibliometric
 tools provided by journals, such as DOIs, a top-level ISSN, and
 inclusion in research search aggregator tools <span class="citation"
-data-cites="anderson2012towards"><a href="#ref-anderson2012towards"
-role="doc-biblioref">[4]</a></span>. A limitation of these platforms
+data-cites="anderson2012towards">[<a href="#ref-anderson2012towards"
+role="doc-biblioref">4</a>]</span>. A limitation of these platforms
 hosted by scholarly associations, however, is that their disciplinary
 focus may make them less suitable for research situated outside their
 core fields.</p>
@@ -391,9 +441,9 @@ Computers and the Humanities builds on the opportunities afforded by
 models across academia to support peer-reviewed, open access research
 published on a timeline that aligns with computationally-infused
 research to maximize our scholarship's impact <span class="citation"
-data-cites="bosman2021oa suber2012open"><a href="#ref-bosman2021oa"
-role="doc-biblioref">[5]</a>, <a href="#ref-suber2012open"
-role="doc-biblioref">[6]</a></span>.</p>
+data-cites="bosman2021oa suber2012open">[<a href="#ref-bosman2021oa"
+role="doc-biblioref">5</a>,<a href="#ref-suber2012open"
+role="doc-biblioref">6</a>]</span>.</p>
 <h1 data-number="2"
 id="state-of-conference-proceedings-in-the-digital-humanities"><span
 class="header-section-number">2</span> State of Conference Proceedings
@@ -498,9 +548,9 @@ Through an institutional license from the non-profit organization
 Crossref, we will be able to offer dedicated DOIs for every paper and
 ensure inclusion in all major research aggregators <span
 class="citation"
-data-cites="chandrakar2006digital hendricks2020crossref"><a
-href="#ref-chandrakar2006digital" role="doc-biblioref">[7]</a>, <a
-href="#ref-hendricks2020crossref" role="doc-biblioref">[8]</a></span>.
+data-cites="chandrakar2006digital hendricks2020crossref">[<a
+href="#ref-chandrakar2006digital" role="doc-biblioref">7</a>,<a
+href="#ref-hendricks2020crossref" role="doc-biblioref">8</a>]</span>.
 Additionally, we will support integration and linked data using ORCIDs
 and a top-level ISSN for the publication. These bibliographic tools
 enhance the findability of papers published in the Anthology and
@@ -538,56 +588,52 @@ done within our community.</p>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-kochetkov2021importance" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">D.
-Kochetkov, A. Birukou, and A. Ermolayeva, <span>“The importance of
-conference proceedings in research evaluation: A methodology for
-assessing conference impact,”</span> in <em>International conference on
-distributed computer and communication networks</em>, Springer, 2021,
-pp. 359–370.</div>
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Kochetkov D, Birukou A, Ermolayeva A. The
+importance of conference proceedings in research evaluation: A
+methodology for assessing conference impact. International conference on
+distributed computer and communication networks, Springer; 2021, p.
+359–70.</div>
 </div>
 <div id="ref-lisee2008conference" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">C.
-Lisée, V. Larivière, and É. Archambault, <span>“Conference proceedings
-as a source of scientific information: A bibliometric analysis,”</span>
-<em>Journal of the American Society for Information Science and
-Technology</em>, vol. 59, no. 11, pp. 1776–1784, 2008.</div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Lisée C, Larivière V, Archambault É. Conference
+proceedings as a source of scientific information: A bibliometric
+analysis. Journal of the American Society for Information Science and
+Technology 2008;59:1776–84.</div>
 </div>
 <div id="ref-vrettas2015conferences" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">G.
-Vrettas and M. Sanderson, <span>“Conferences versus journals in computer
-science,”</span> <em>Journal of the Association for Information Science
-and Technology</em>, vol. 66, no. 12, pp. 2674–2684, 2015.</div>
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">Vrettas G, Sanderson M. Conferences versus
+journals in computer science. Journal of the Association for Information
+Science and Technology 2015;66:2674–84.</div>
 </div>
 <div id="ref-anderson2012towards" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">A.
-Anderson, D. Jurafsky, and D. McFarland, <span>“Towards a computational
-history of the ACL: 1980–2008,”</span> in <em>Proceedings of the
-ACL-2012 special workshop on rediscovering 50 years of discoveries</em>,
-2012.</div>
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">Anderson A, Jurafsky D, McFarland D. Towards a
+computational history of the ACL: 1980–2008. Proceedings of the ACL-2012
+special workshop on rediscovering 50 years of discoveries, 2012.</div>
 </div>
 <div id="ref-bosman2021oa" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">J.
-Bosman, J. E. Frantsvåg, B. Kramer, P.-C. Langlais, and V. Proudman,
-<span>“The OA diamond journals study. Part 1: findings,”</span>
-2021.</div>
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">Bosman J, Frantsvåg JE, Kramer B, Langlais P-C,
+Proudman V. The OA diamond journals study. Part 1: findings. 2021.</div>
 </div>
 <div id="ref-suber2012open" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">P.
-Suber, <em>Open access</em>. Cambridge, MA: MIT Press, 2012, p.
-256.</div>
+<div class="csl-left-margin">[6] </div><div
+class="csl-right-inline">Suber P. Open access. Cambridge, MA: MIT Press;
+2012.</div>
 </div>
 <div id="ref-chandrakar2006digital" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">R.
-Chandrakar, <span>“Digital object identifier system: An
-overview,”</span> <em>The Electronic Library</em>, vol. 24, no. 4, pp.
-445–452, 2006.</div>
+<div class="csl-left-margin">[7] </div><div
+class="csl-right-inline">Chandrakar R. Digital object identifier system:
+An overview. The Electronic Library 2006;24:445–52.</div>
 </div>
 <div id="ref-hendricks2020crossref" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">G.
-Hendricks, D. Tkaczyk, J. Lin, and P. Feeney, <span>“Crossref: The
-sustainable source of community-owned scholarly metadata,”</span>
-<em>Quantitative Science Studies</em>, vol. 1, no. 1, pp. 414–427,
-2020.</div>
+<div class="csl-left-margin">[8] </div><div
+class="csl-right-inline">Hendricks G, Tkaczyk D, Lin J, Feeney P.
+Crossref: The sustainable source of community-owned scholarly metadata.
+Quantitative Science Studies 2020;1:414–27.</div>
 </div>
 </div>
 
@@ -651,8 +697,8 @@ sustainable source of community-owned scholarly metadata,”</span>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';

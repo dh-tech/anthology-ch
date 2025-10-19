@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developing Training and Education Resources for Research Software Engineering in DH</title>
+  <title>There and back again—how to preserve your data during transformations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,28 +12,26 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/developing-training-education-resources-for-in-dh/">
-  <meta name="citation_title" content="Developing Training and Education Resources for Research Software Engineering in DH">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/developing-training-education-resources-for-in-dh/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
   <meta name="citation_volume" content="2">
-  <meta name="citation_firstpage" content="13">
-  <meta name="citation_lastpage" content="18">
-  <meta name="citation_doi" content="10.63744/X9dgVaDTvJHY">
-  <meta name="citation_author" content="Damerow, Julia">
-  <meta name="citation_author" content="Nelson, David Ragnar">
-  <meta name="citation_author" content="Hernandez, Jose">
+  <meta name="citation_firstpage" content="6">
+  <meta name="citation_lastpage" content="12">
+  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
+  <meta name="citation_author" content="Casties, Robert">
   
   <meta name="citation_editor" content="Damerow, Julia">
   <meta name="citation_editor" content="Koeser, Rebecca Sutton">
   
-  <meta name="citation_abstract" content="Abstract This paper outlines an in-progress educational resource created by the DHTech Education and Training Working Group. The preliminary resource seeks to fill a gap in the current training materials available to people who work on the technical side of Digital Humanities projects. It will provide resources on high-level core concepts of software development that contextualize, rather than duplicate, existing resources. The contribution outlines the intended workflow for producing this resource and details the anticipated challenges and barriers to implementation.">
+  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="pedagogy; training; digital humanities; research software engineering">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/developing-training-education-resources-for-in-dh/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/developing-training-education-resources-for-in-dh/10.63744@X9dgVaDTvJHY.pdf">
+  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
@@ -45,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -75,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -94,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -152,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -297,25 +351,25 @@ framework or learning a new programming language. Small scale
 experiments and experiences suggest, however, that a formal software
 engineering or computer science degree provides a deeper understanding
 of computers and software development concepts <span class="citation"
-data-cites="bartram2016 kimball2023"><a href="#ref-bartram2016"
-role="doc-biblioref">[1]</a>, <a href="#ref-kimball2023"
-role="doc-biblioref">[2]</a></span>. For research software, this lack of
+data-cites="bartram2016 kimball2023">[<a href="#ref-bartram2016"
+role="doc-biblioref">1</a>,<a href="#ref-kimball2023"
+role="doc-biblioref">2</a>]</span>. For research software, this lack of
 fundamental knowledge might contribute to some of the difficulties
 researchers face when writing code. Wiese et al. found that 70% of
 respondents to their survey of scientific R developers deal with
 technical difficulties such as software design and maintenance <span
-class="citation" data-cites="wiese2020"><a href="#ref-wiese2020"
-role="doc-biblioref">[3]</a></span>. This is supported by a survey of
+class="citation" data-cites="wiese2020">[<a href="#ref-wiese2020"
+role="doc-biblioref">3</a>]</span>. This is supported by a survey of
 scientific R developers conducted by Pinto et al., which found that 52%
 of respondents indicated they had only a novice understanding or no
 understanding at all of software design <span class="citation"
-data-cites="pinto2018"><a href="#ref-pinto2018"
-role="doc-biblioref">[4]</a></span>. While systematic studies of
-software development skills in the humanities are lacking, Bleeker et
-al. found in a survey on “code literacy” in DH that around two-thirds of
+data-cites="pinto2018">[<a href="#ref-pinto2018"
+role="doc-biblioref">4</a>]</span>. While systematic studies of software
+development skills in the humanities are lacking, Bleeker et al. found
+in a survey on “code literacy” in DH that around two-thirds of
 respondents reported having no, beginner, or intermediate levels of code
-literacy <span class="citation" data-cites="bleeker2022"><a
-href="#ref-bleeker2022" role="doc-biblioref">[5]</a></span>.</p>
+literacy <span class="citation" data-cites="bleeker2022">[<a
+href="#ref-bleeker2022" role="doc-biblioref">5</a>]</span>.</p>
 <p>Given this need for self-directed learning, there is a demand for
 training resources for software development. In general, there are two
 types of resources: tool- or technique-specific resources and (research)
@@ -324,9 +378,9 @@ focuses on a specific problem statement and how to use a certain tool or
 technique to address it; such as the lessons published in the
 Programming Historian<a href="#fn3" class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a> <span class="citation"
-data-cites="mullen2025 ryan2021"><a href="#ref-mullen2025"
-role="doc-biblioref">[6]</a>, <a href="#ref-ryan2021"
-role="doc-biblioref">[7]</a></span>. Lessons in these resources teach,
+data-cites="mullen2025 ryan2021">[<a href="#ref-mullen2025"
+role="doc-biblioref">6</a>,<a href="#ref-ryan2021"
+role="doc-biblioref">7</a>]</span>. Lessons in these resources teach,
 for example, how to create choropleth maps with Python, how to work with
 dates in R, or how to analyze newspapers with R. The second type of
 resource focuses on general software engineering topics and is not
@@ -348,17 +402,17 @@ confirmed by the survey conducted by DHTech in 2025 which found that
 over 70% of respondents worked on web applications, projects, or digital
 editions, and 60% used JavaScript. In contrast, in the RSE International
 Survey 2022 only 19% indicated that they used JavaScript <span
-class="citation" data-cites="hettrick2022"><a href="#ref-hettrick2022"
-role="doc-biblioref">[8]</a></span>, suggesting that web application
+class="citation" data-cites="hettrick2022">[<a href="#ref-hettrick2022"
+role="doc-biblioref">8</a>]</span>, suggesting that web application
 development is not the main task of many developers of research software
 outside of the humanities.<a href="#fn9" class="footnote-ref"
 id="fnref9" role="doc-noteref"><sup>9</sup></a> In addition, code and
 software are often not seen as primary research outputs in the
 humanities, which can be a barrier to starting conversations about best
-practices <span class="citation" data-cites="vanzundert2020"><a
-href="#ref-vanzundert2020" role="doc-biblioref">[9]</a></span>. While
-the authors are not aware of any survey or study about the differences
-in required skills between DH developers and developers working in other
+practices <span class="citation" data-cites="vanzundert2020">[<a
+href="#ref-vanzundert2020" role="doc-biblioref">9</a>]</span>. While the
+authors are not aware of any survey or study about the differences in
+required skills between DH developers and developers working in other
 research domains, personal experience and anecdotal evidence suggest
 that there are indeed variations. Although all of the resources listed
 above are highly valuable and widely used, there is a lack of materials
@@ -388,8 +442,8 @@ role="doc-noteref"><sup>11</sup></a></p>
 programmers can introduce bugs or errors into the software. There are
 well-known examples in the hard sciences of bugs in research software
 leading to incorrect results <span class="citation"
-data-cites="neupane2019"><a href="#ref-neupane2019"
-role="doc-biblioref">[10]</a></span>. While no such cases are known yet
+data-cites="neupane2019">[<a href="#ref-neupane2019"
+role="doc-biblioref">10</a>]</span>. While no such cases are known yet
 in DH, there is a real possibility for errors and bugs in our field as
 well. Even in a web application, which may not produce hard, verifiable
 results, bugs or errors in the software, such as an improperly designed
@@ -488,16 +542,15 @@ incentive for volunteers to contribute which is why the group provides a
 DOI for published lessons: so they can be listed on a CV. In general, DH
 has long grappled with crediting practitioners for research outputs
 other than a traditional paper or article <span class="citation"
-data-cites="nowviskie2011"><a href="#ref-nowviskie2011"
-role="doc-biblioref">[11]</a></span>; the inclusion of a DOI brings
-these training resources closer to a traditional research output. This
-is one approach to encourage contributions, and there may be others that
-could be explored in the future, such as further recognition for
-reviewers, or cataloging lessons for inclusion in other repositories of
-software engineering or digital humanities educational materials. It is
-the hope of this working group that once sufficient community has been
-built around the project, non-volunteer sources of labor may be
-feasible.</p>
+data-cites="nowviskie2011">[<a href="#ref-nowviskie2011"
+role="doc-biblioref">11</a>]</span>; the inclusion of a DOI brings these
+training resources closer to a traditional research output. This is one
+approach to encourage contributions, and there may be others that could
+be explored in the future, such as further recognition for reviewers, or
+cataloging lessons for inclusion in other repositories of software
+engineering or digital humanities educational materials. It is the hope
+of this working group that once sufficient community has been built
+around the project, non-volunteer sources of labor may be feasible.</p>
 <p>Maintenance of lessons is another challenge. Technologies become
 outdated and resources may become unreachable. The planned approach to
 combat this problem is three-fold. First, focusing more on concepts and
@@ -517,19 +570,19 @@ Software development in general, and not just in DH, is actively
 grappling with the effects of generative AI on workflows, productivity,
 and training. Recent studies on the impact of AI on software development
 have been inconclusive. Two recent studies <span class="citation"
-data-cites="coutinho2024 cui2025"><a href="#ref-coutinho2024"
-role="doc-biblioref">[12]</a>, <a href="#ref-cui2025"
-role="doc-biblioref">[13]</a></span> found generative AI had a positive
+data-cites="coutinho2024 cui2025">[<a href="#ref-coutinho2024"
+role="doc-biblioref">12</a>,<a href="#ref-cui2025"
+role="doc-biblioref">13</a>]</span> found generative AI had a positive
 effect on productivity in large software companies, while another <span
-class="citation" data-cites="becker2025"><a href="#ref-becker2025"
-role="doc-biblioref">[14]</a></span> found a negative effect on
+class="citation" data-cites="becker2025">[<a href="#ref-becker2025"
+role="doc-biblioref">14</a>]</span> found a negative effect on
 productivity for open source software developers. In a recent study on
 the use of AI by scientists who write code, O’Brien found that
 scientific programmers without formal education in computer science used
 AI in place of official documentation, and that they often struggled to
 verify the output of AI-generated code <span class="citation"
-data-cites="obrien2025"><a href="#ref-obrien2025"
-role="doc-biblioref">[15]</a></span>. The members of the working group
+data-cites="obrien2025">[<a href="#ref-obrien2025"
+role="doc-biblioref">15</a>]</span>. The members of the working group
 are concerned about the effects these tools may have on errors and code
 maintainability, which makes robust training resources even more
 essential. In addition to using AI to write code, other advances in AI
@@ -575,120 +628,104 @@ is an integral part of this project.</p>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-bartram2016" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">A.
-Bartram, <span>“Coding boot camp grads write better code.”</span> <a
-href="https://www.infoworld.com/article/2250588/coding-boot-camp-grads-write-better-code.html"
-class="uri">https://www.infoworld.com/article/2250588/coding-boot-camp-grads-write-better-code.html</a>,
-2016.</div>
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Bartram A. Coding boot camp grads write better
+code 2016.</div>
 </div>
 <div id="ref-kimball2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">D.
-Kimball, <span>“Self-taught developers vs. Developers with
-degrees.”</span> <a
-href="https://manilarecruitment.com/manila-recruitment-articles-advice/self-taught-developers-vs-developers-with-degrees-hiring-the-right-fit/"
-class="uri">https://manilarecruitment.com/manila-recruitment-articles-advice/self-taught-developers-vs-developers-with-degrees-hiring-the-right-fit/</a>,
-2023.</div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Kimball D. Self-taught developers vs.
+Developers with degrees 2023.</div>
 </div>
 <div id="ref-wiese2020" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">I.
-Wiese, I. Polato, and G. Pinto, <span>“Naming the pain in developing
-scientific software,”</span> <em>IEEE Software</em>, vol. 37, no. 4, pp.
-75–82, 2020, doi: <a
-href="https://doi.org/10.1109/MS.2019.2899838">10.1109/MS.2019.2899838</a>.</div>
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">Wiese I, Polato I, Pinto G. Naming the pain in
+developing scientific software. IEEE Software 2020;37:75–82. <a
+href="https://doi.org/10.1109/MS.2019.2899838">https://doi.org/10.1109/MS.2019.2899838</a>.</div>
 </div>
 <div id="ref-pinto2018" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">G.
-Pinto, I. Wiese, and L. F. Dias, <span>“How do scientists develop
-scientific software? An external replication,”</span> in <em>2018 IEEE
-25th international conference on software analysis, evolution and
-reengineering (SANER)</em>, 2018, pp. 582–591. doi: <a
-href="https://doi.org/10.1109/SANER.2018.8330263">10.1109/SANER.2018.8330263</a>.</div>
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">Pinto G, Wiese I, Dias LF. How do scientists
+develop scientific software? An external replication. 2018 IEEE 25th
+international conference on software analysis, evolution and
+reengineering (SANER), 2018, p. 582–91. <a
+href="https://doi.org/10.1109/SANER.2018.8330263">https://doi.org/10.1109/SANER.2018.8330263</a>.</div>
 </div>
 <div id="ref-bleeker2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">E.
-Bleeker, M. Koolen, K. Beelen, L. Melgar, J. van Zundert, and S.
-Chambers, <span>“A game of persistence, self-doubt, and curiosity:
-Surveying code literacy in digital humanities,”</span> <em>DH Benelux
-Journal</em>, vol. 4, pp. 1–28, 2022.</div>
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">Bleeker E, Koolen M, Beelen K, Melgar L,
+Zundert J van, Chambers S. A game of persistence, self-doubt, and
+curiosity: Surveying code literacy in digital humanities. DH Benelux
+Journal 2022;4:1–28.</div>
 </div>
 <div id="ref-mullen2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">L.
-A. Mullen, <span>“Computational historical thinking.”</span> <a
-href="https://dh-r.lincolnmullen.com/"
-class="uri">https://dh-r.lincolnmullen.com/</a>, ongoing.</div>
+<div class="csl-left-margin">[6] </div><div
+class="csl-right-inline">Mullen LA. Computational historical thinking
+ongoing.</div>
 </div>
 <div id="ref-ryan2021" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Y.
-Ryan, <span>“A short guide to historical newspaper data, using
-r.”</span> <a
-href="https://bookdown.org/yann_ryan/r-for-newspaper-data/"
-class="uri">https://bookdown.org/yann_ryan/r-for-newspaper-data/</a>,
-2021.</div>
+<div class="csl-left-margin">[7] </div><div
+class="csl-right-inline">Ryan Y. A short guide to historical newspaper
+data, using r 2021.</div>
 </div>
 <div id="ref-hettrick2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S.
-Hettrick <em>et al.</em>, <span>“RSE survey 2022, pre-final release for
-2022 results (version 2022-v0.9.0).”</span> <a
-href="https://softwaresaved.github.io/international-survey-2022/"
-class="uri">https://softwaresaved.github.io/international-survey-2022/</a>,
-2022.</div>
+<div class="csl-left-margin">[8] </div><div
+class="csl-right-inline">Hettrick S, Bast R, Botzki A, Carver J, Cosden
+I, Crouch S, et al. RSE survey 2022, pre-final release for 2022 results
+(version 2022-v0.9.0) 2022.</div>
 </div>
 <div id="ref-vanzundert2020" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[9] </div><div class="csl-right-inline">J.
-van Zundert, S. Antonijevic, and T. Andrews, <span>“Digital technology
-and the practices of humanities research,”</span> Open Book Publishers,
-2020, ch. 6. ’Black Boxes’ and True Colour — A Rhetoric of Scholarly
-Code, pp. 123–162. doi: <a
-href="https://doi.org/10.11647/OBP.0192.06">10.11647/OBP.0192.06</a>.</div>
+<div class="csl-left-margin">[9] </div><div
+class="csl-right-inline">Zundert J van, Antonijevic S, Andrews T.
+Digital technology and the practices of humanities research, Open Book
+Publishers; 2020, p. 123–62. <a
+href="https://doi.org/10.11647/OBP.0192.06">https://doi.org/10.11647/OBP.0192.06</a>.</div>
 </div>
 <div id="ref-neupane2019" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[10] </div><div class="csl-right-inline">J.
-B. Neupane, R. P. Neupane, Y. Luo, W. Y. Yoshida, R. Sun, and P. G.
-Williams, <span>“Characterization of leptazolines a–d, polar oxazolines
+<div class="csl-left-margin">[10] </div><div
+class="csl-right-inline">Neupane JB, Neupane RP, Luo Y, Yoshida WY, Sun
+R, Williams PG. Characterization of leptazolines a–d, polar oxazolines
 from the cyanobacterium leptolyngbya sp., reveals a glitch with the
-<span>‘willoughby–hoye’</span> scripts for calculating NMR chemical
-shifts,”</span> <em>Organic Letters</em>, vol. 21, no. 20, pp.
-8449–8453, 2019, doi: <a
-href="https://doi.org/10.1021/acs.orglett.9b03216">10.1021/acs.orglett.9b03216</a>.</div>
+<span>“willoughby–hoye”</span> scripts for calculating NMR chemical
+shifts. Organic Letters 2019;21:8449–53. <a
+href="https://doi.org/10.1021/acs.orglett.9b03216">https://doi.org/10.1021/acs.orglett.9b03216</a>.</div>
 </div>
 <div id="ref-nowviskie2011" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">B.
-Nowviskie, <span>“Where credit is due: Preconditions for the evaluation
-of collaborative digital scholarship,”</span> <em>Profession</em>, pp.
-169–181, 2011, doi: <a
-href="https://doi.org/10.1632/prof.2011.2011.1.169">10.1632/prof.2011.2011.1.169</a>.</div>
+<div class="csl-left-margin">[11] </div><div
+class="csl-right-inline">Nowviskie B. Where credit is due: Preconditions
+for the evaluation of collaborative digital scholarship. Profession
+2011:169–81. <a
+href="https://doi.org/10.1632/prof.2011.2011.1.169">https://doi.org/10.1632/prof.2011.2011.1.169</a>.</div>
 </div>
 <div id="ref-coutinho2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[12] </div><div class="csl-right-inline">M.
-Coutinho, L. Marques, A. Santos, M. Dahia, C. França, and R. de Souza
-Santos, <span>“The role of generative AI in software development
-productivity: A pilot case study,”</span> in <em>Proceedings of the 1st
-ACM international conference on AI-powered software (AIware ’24)</em>,
-Porto de Galinhas, Brazil: ACM, 2024, pp. 1–8. doi: <a
-href="https://doi.org/10.1145/3664646.3664773">10.1145/3664646.3664773</a>.</div>
+<div class="csl-left-margin">[12] </div><div
+class="csl-right-inline">Coutinho M, Marques L, Santos A, Dahia M,
+França C, Souza Santos R de. The role of generative AI in software
+development productivity: A pilot case study. Proceedings of the 1st ACM
+international conference on AI-powered software (AIware ’24), Porto de
+Galinhas, Brazil: ACM; 2024, p. 1–8. <a
+href="https://doi.org/10.1145/3664646.3664773">https://doi.org/10.1145/3664646.3664773</a>.</div>
 </div>
 <div id="ref-cui2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[13] </div><div class="csl-right-inline">Z.
-Cui, M. Demirer, S. Jaffe, L. Musolff, S. Peng, and T. Salz, <span>“The
-effects of generative AI on high-skilled work: Evidence from three field
-experiments with software developers.”</span> <a
-href="http://dx.doi.org/10.2139/ssrn.4945566"
-class="uri">http://dx.doi.org/10.2139/ssrn.4945566</a>, 2025.</div>
+<div class="csl-left-margin">[13] </div><div
+class="csl-right-inline">Cui Z, Demirer M, Jaffe S, Musolff L, Peng S,
+Salz T. The effects of generative AI on high-skilled work: Evidence from
+three field experiments with software developers 2025.</div>
 </div>
 <div id="ref-becker2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[14] </div><div class="csl-right-inline">J.
-Becker, N. Rush, E. Barnes, and D. Rein, <span>“Measuring the impact of
-early-2025 AI on experienced open-source developer productivity.”</span>
-2025. doi: <a
+<div class="csl-left-margin">[14] </div><div
+class="csl-right-inline">Becker J, Rush N, Barnes E, Rein D. Measuring
+the impact of early-2025 AI on experienced open-source developer
+productivity 2025. https://doi.org/<a
 href="https://arxiv.org/abs/2507.09089">https://arxiv.org/abs/2507.09089</a>.</div>
 </div>
 <div id="ref-obrien2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[15] </div><div class="csl-right-inline">G.
-O’Brien, <span>“How scientists use large language models to
-program,”</span> in <em>Proceedings of the 2025 CHI conference on human
-factors in computing systems</em>, New York, NY, USA: Association for
-Computing Machinery, 2025, pp. 1–16. doi: <a
-href="https://doi.org/10.1145/3706598.3713668">10.1145/3706598.3713668</a>.</div>
+<div class="csl-left-margin">[15] </div><div
+class="csl-right-inline">O’Brien G. How scientists use large language
+models to program. Proceedings of the 2025 CHI conference on human
+factors in computing systems, New York, NY, USA: Association for
+Computing Machinery; 2025, p. 1–16. <a
+href="https://doi.org/10.1145/3706598.3713668">https://doi.org/10.1145/3706598.3713668</a>.</div>
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
@@ -815,8 +852,8 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';

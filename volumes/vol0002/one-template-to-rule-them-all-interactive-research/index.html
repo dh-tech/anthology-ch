@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Template to Rule Them All: Interactive Research Data Documentation with Quarto</title>
+  <title>There and back again—how to preserve your data during transformations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,27 +12,26 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/one-template-to-rule-them-all-interactive-research/">
-  <meta name="citation_title" content="One Template to Rule Them All: Interactive Research Data Documentation with Quarto">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/one-template-to-rule-them-all-interactive-research/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
   <meta name="citation_volume" content="2">
-  <meta name="citation_firstpage" content="54">
-  <meta name="citation_lastpage" content="67">
-  <meta name="citation_doi" content="10.63744/X90VnKkYV5Hb">
-  <meta name="citation_author" content="Mähr, Moritz">
-  <meta name="citation_author" content="Twente, Moritz">
+  <meta name="citation_firstpage" content="6">
+  <meta name="citation_lastpage" content="12">
+  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
+  <meta name="citation_author" content="Casties, Robert">
   
   <meta name="citation_editor" content="Damerow, Julia">
   <meta name="citation_editor" content="Koeser, Rebecca Sutton">
   
-  <meta name="citation_abstract" content="Abstract This paper introduces the Open Research Data Template, a modular, Quarto-based framework developed to enhance the documentation, publication, and reuse of research data in the Digital Humanities. Originating from the Stadt.Geschichte.Basel project, the template addresses common challenges in research data management (RDM), such as poor documentation of data preprocessing and reuse pathways, by integrating narrative, metadata, and executable code into interactive, version-controlled websites. Built on The Turing Way guidelines and leveraging GitHub for collaboration and Zenodo for archival DOIs, the template enables automated deployment, consistent repository structure, and living, reproducible documentation. Through diverse use cases, including project documentation, reproducible workflows, conference and teaching platforms, and living handbooks, the paper demonstrates the template’s flexibility and scalability. The authors argue that making robust, interactive documentation a default practice lowers technical barriers, improves sustainability, and fosters genuinely open and reusable research outputs. The widespread adoption of the template illustrates its value as a practical model for elevating open data standards and supporting the evolving needs of the Digital Humanities community.">
+  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="open research data; documentation; reproducibility; Digital Humanities; Quarto; static sites; research data management; GitHub; Zenodo">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/one-template-to-rule-them-all-interactive-research/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/one-template-to-rule-them-all-interactive-research/10.63744@X90VnKkYV5Hb.pdf">
+  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
@@ -44,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -74,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -93,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -151,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -296,9 +351,9 @@ a <a href="https://emono.unibas.ch/stadtgeschichtebasel/">ten-volume
 book series</a>, a <a href="https://stadtgeschichtebasel.ch/">digital
 portal</a>, and a dedicated <a
 href="https://forschung.stadtgeschichtebasel.ch/">research data
-platform</a> <span class="citation" data-cites="goerlich2023"><a
-href="#ref-goerlich2023" role="doc-biblioref">[1]</a></span>. As Team
-for Research Data Management and Public History, we were tasked with
+platform</a> <span class="citation" data-cites="goerlich2023">[<a
+href="#ref-goerlich2023" role="doc-biblioref">1</a>]</span>. As Team for
+Research Data Management and Public History, we were tasked with
 managing a vast range of historical research data produced by over fifty
 authors working on the book series. From collection and organization to
 long-term preservation and public dissemination, we worked with images
@@ -309,8 +364,8 @@ Stadt.Geschichte.Basel placed emphasis on robust research data
 management (RDM) and continuous public engagement. We created an <a
 href="https://dokumentation.stadtgeschichtebasel.ch/">online
 documentation website</a> <span class="citation"
-data-cites="maehr2024g"><a href="#ref-maehr2024g"
-role="doc-biblioref">[2]</a></span> to make our work on Basel’s
+data-cites="maehr2024g">[<a href="#ref-maehr2024g"
+role="doc-biblioref">2</a>]</span> to make our work on Basel’s
 historical data publicly accessible, ensuring the project maintained
 continuous public visibility and dialogue with future users even during
 development. Key RDM work packages included securing the project’s
@@ -318,22 +373,22 @@ diverse data (spanning images, maps, figures, tabular data, geodata,
 etc.) and developing interactive showcases for data presentation. We
 decided that adhering to FAIR principles (Findable, Accessible,
 Interoperable, Reusable) was critical for reproducibility <span
-class="citation" data-cites="wilkinson2016"><a href="#ref-wilkinson2016"
-role="doc-biblioref">[3]</a></span>, especially since historical
-scholarship to date lacks well-established discipline-specific RDM
-guidelines <span class="citation"
-data-cites="hiltmann2018 ruediger2023"><a href="#ref-hiltmann2018"
-role="doc-biblioref">[4]</a>, <a href="#ref-ruediger2023"
-role="doc-biblioref">[5]</a></span>. We also adopted minimal computing
+class="citation" data-cites="wilkinson2016">[<a
+href="#ref-wilkinson2016" role="doc-biblioref">3</a>]</span>, especially
+since historical scholarship to date lacks well-established
+discipline-specific RDM guidelines <span class="citation"
+data-cites="hiltmann2018 ruediger2023">[<a href="#ref-hiltmann2018"
+role="doc-biblioref">4</a>,<a href="#ref-ruediger2023"
+role="doc-biblioref">5</a>]</span>. We also adopted minimal computing
 tools like CollectionBuilder for digital collections, working with GLAM
 institutions to translate research data into formats accessible to the
-public <span class="citation" data-cites="mahr2023g"><a
-href="#ref-mahr2023g" role="doc-biblioref">[6]</a></span>. This
+public <span class="citation" data-cites="mahr2023g">[<a
+href="#ref-mahr2023g" role="doc-biblioref">6</a>]</span>. This
 comprehensive approach to RDM in a public history context underscored
 the need for better workflows to document not just the data, but also
 the processes and decisions behind the data <span class="citation"
-data-cites="borgman2012"><a href="#ref-borgman2012"
-role="doc-biblioref">[7]</a></span>.</p>
+data-cites="borgman2012">[<a href="#ref-borgman2012"
+role="doc-biblioref">7</a>]</span>.</p>
 <h1 data-number="2" id="developing-an-open-research-data-template"><span
 class="header-section-number">2</span> Developing an Open Research Data
 Template</h1>
@@ -341,8 +396,8 @@ Template</h1>
 developed the <a
 href="https://github.com/maehr/open-research-data-template">Open
 Research Data Template</a> <span class="citation"
-data-cites="mahr2023g"><a href="#ref-mahr2023g"
-role="doc-biblioref">[6]</a></span>—a modular, GitHub-based framework
+data-cites="mahr2023g">[<a href="#ref-mahr2023g"
+role="doc-biblioref">6</a>]</span>—a modular, GitHub-based framework
 designed to streamline the publication, documentation, and reuse of open
 research data.<a href="#fn1" class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a> The motivation arose from a common
@@ -358,19 +413,18 @@ Technologies</h2>
 <p>The template is explicitly built around the guidelines from <a
 href="https://book.the-turing-way.org/"><em>The Turing
 Way</em></a> <span class="citation"
-data-cites="theturingwaycommunity2025"><a
-href="#ref-theturingwaycommunity2025"
-role="doc-biblioref">[8]</a></span> to ensure that data and
-documentation are maximally reusable. Central to the approach is <a
-href="https://quarto.org/">Quarto</a>, an open-source publishing system
-designed for reproducible research. Quarto is the language-agnostic
-successor to RMarkdown and is built on Pandoc, extending it with native
-support for literate programming across multiple languages. Authors
-write in plain text (<code>.qmd</code> files) combining Markdown, YAML
-metadata, and optional executable code cells. At render time, Quarto
-executes these cells and weaves narrative, code, and output into
-multiple formats (such as HTML websites, PDFs, Word documents, or
-slides) from a single source.</p>
+data-cites="theturingwaycommunity2025">[<a
+href="#ref-theturingwaycommunity2025" role="doc-biblioref">8</a>]</span>
+to ensure that data and documentation are maximally reusable. Central to
+the approach is <a href="https://quarto.org/">Quarto</a>, an open-source
+publishing system designed for reproducible research. Quarto is the
+language-agnostic successor to RMarkdown and is built on Pandoc,
+extending it with native support for literate programming across
+multiple languages. Authors write in plain text (<code>.qmd</code>
+files) combining Markdown, YAML metadata, and optional executable code
+cells. At render time, Quarto executes these cells and weaves narrative,
+code, and output into multiple formats (such as HTML websites, PDFs,
+Word documents, or slides) from a single source.</p>
 <p>Quarto’s key advantage is its ability to embed and execute code
 chunks from Python, R, Julia, or JavaScript (Observable) within the same
 document. This keeps narrative text, data analysis, and visualizations
@@ -423,8 +477,8 @@ methods as PDF documentation, but our template merges static metadata,
 narrative descriptions, and executable code into a single integrated and
 interactive website. This ensures that data, methods, and results remain
 interconnected and in context <span class="citation"
-data-cites="rule2019"><a href="#ref-rule2019"
-role="doc-biblioref">[9]</a></span>. Anyone revisiting the project can
+data-cites="rule2019">[<a href="#ref-rule2019"
+role="doc-biblioref">9</a>]</span>. Anyone revisiting the project can
 not only read about what was done but also see (and run) the actual code
 that produced the results, all within the documentation. This
 transparency lowers barriers to reuse: a future researcher can reproduce
@@ -439,9 +493,9 @@ Practices</h2>
 built in. It enforces a standardized, logical repository structure for
 organizing data, code, and content, building on <em>The Turing Way</em>
 handbook on reproducible research <span class="citation"
-data-cites="theturingwaycommunity2025"><a
+data-cites="theturingwaycommunity2025">[<a
 href="#ref-theturingwaycommunity2025"
-role="doc-biblioref">[8]</a></span>. Key features include:</p>
+role="doc-biblioref">8</a>]</span>. Key features include:</p>
 <p> <strong>Executable Narratives.</strong> Authors can create documents
 that directly incorporate code outputs (tables, plots, maps, etc.) into
 the narrative. Quarto’s support for Jupyter and other kernels means the
@@ -483,8 +537,8 @@ practical model for elevating the standard of open data publication in
 the Digital Humanities. It helps researchers move beyond minimal
 compliance with open data mandates (i.e., just uploading files to a
 repository) toward creating genuinely reusable and transparent research
-outputs <span class="citation" data-cites="diekjobst2024a"><a
-href="#ref-diekjobst2024a" role="doc-biblioref">[10]</a></span>. In the
+outputs <span class="citation" data-cites="diekjobst2024a">[<a
+href="#ref-diekjobst2024a" role="doc-biblioref">10</a>]</span>. In the
 next section, we discuss how deploying this template across diverse use
 cases has improved it and demonstrated its versatility.</p>
 <h1 data-number="3"
@@ -509,21 +563,21 @@ itself. To have a repository for archiving our products and showing them
 to our peers, including more technical aspects of the project, we used
 the template to create a <a
 href="https://dokumentation.stadtgeschichtebasel.ch"><strong>documentation
-platform</strong></a> <span class="citation" data-cites="maehr2024g"><a
-href="#ref-maehr2024g" role="doc-biblioref">[2]</a></span>. The site
-thus serves as an evolving record of how we handle data and digital
-outputs within the project and how we discuss it with our scientific
-peers. It includes sections on data creation, annotation, publication,
-and reuse, as well as our efforts in preparing historical content for
-digital presentation. For instance, we showcase how our project’s
-research data platform came to be, including documentation of our data
-model and the results of web design performance audits. While our code
-itself is still available on GitHub, the documentation platform serves
-as an enhanced repository where design choices and programming workflows
-can be explained in detail. By using our Quarto template, we could also
-provide interactive and multiformat versions of our products to make it
-easier to grasp their main features, rendering them easily reusable in
-other projects. During the project, our team participated in numerous
+platform</strong></a> <span class="citation" data-cites="maehr2024g">[<a
+href="#ref-maehr2024g" role="doc-biblioref">2</a>]</span>. The site thus
+serves as an evolving record of how we handle data and digital outputs
+within the project and how we discuss it with our scientific peers. It
+includes sections on data creation, annotation, publication, and reuse,
+as well as our efforts in preparing historical content for digital
+presentation. For instance, we showcase how our project’s research data
+platform came to be, including documentation of our data model and the
+results of web design performance audits. While our code itself is still
+available on GitHub, the documentation platform serves as an enhanced
+repository where design choices and programming workflows can be
+explained in detail. By using our Quarto template, we could also provide
+interactive and multiformat versions of our products to make it easier
+to grasp their main features, rendering them easily reusable in other
+projects. During the project, our team participated in numerous
 presentations and publications discussing our work within the academic
 community. Each talk, paper, poster, etc. is also archived on this
 platform: abstracts, slides, and literature references are made
@@ -541,8 +595,8 @@ talks.</figcaption>
 </figure>
 <p>For the Stadt.Geschichte.Basel project, we created a <a
 href="https://forschung.stadtgeschichtebasel.ch/">research data
-platform</a> <span class="citation" data-cites="goerlich2023"><a
-href="#ref-goerlich2023" role="doc-biblioref">[1]</a></span> to provide
+platform</a> <span class="citation" data-cites="goerlich2023">[<a
+href="#ref-goerlich2023" role="doc-biblioref">1</a>]</span> to provide
 project-related, annotated research data, including dozens of scientific
 illustrations created with ggplot2 in R. The plots are made available on
 this platform, but we wanted to ensure access to the underlying R code
@@ -552,8 +606,8 @@ with uncontextualized source code, and we wanted the code to be 100%
 reproducible. To publish the plots including a reproducible
 workflow—from raw data to a PDF export of each plot—we created the <a
 href="https://dokumentation.stadtgeschichtebasel.ch/sgb-figures"><strong>sgb-figures</strong></a>
-GitHub repository <span class="citation" data-cites="twente2025c"><a
-href="#ref-twente2025c" role="doc-biblioref">[11]</a></span> with our
+GitHub repository <span class="citation" data-cites="twente2025c">[<a
+href="#ref-twente2025c" role="doc-biblioref">11</a>]</span> with our
 template. This repository provides a reproducible environment with raw
 data and scripts for processing, plotting, annotating, and exporting the
 available illustrations. Each plot is linked from our research data
@@ -574,16 +628,16 @@ class="header-section-number">3.2</span> Reproducible Workflows</h2>
 of the Danish Parliament, Folketing. The dataset itself is published in
 the GitHub repository <a
 href="http://mtwente.github.io/nordatlantisk-ft"><strong>nordatlantisk-ft</strong></a> <span
-class="citation" data-cites="twente2024a"><a href="#ref-twente2024a"
-role="doc-biblioref">[12]</a></span>, including the workflow to scrape
+class="citation" data-cites="twente2024a">[<a href="#ref-twente2024a"
+role="doc-biblioref">12</a>]</span>, including the workflow to scrape
 the voting data from Folketinget’s API, to combine different variables
 into one dataset, and to create a few exploratory visualizations. Using
 the template, we structured the repository according to best practices
 following an advanced structure recommended by <em>The Turing
 Way</em> <span class="citation"
-data-cites="theturingwaycommunity2025"><a
+data-cites="theturingwaycommunity2025">[<a
 href="#ref-theturingwaycommunity2025"
-role="doc-biblioref">[8]</a></span>, with a clear folder structure for
+role="doc-biblioref">8</a>]</span>, with a clear folder structure for
 raw data, processed data, analysis scripts, and documentation, including
 a codebook for all variables. The site also integrates external
 resources like a Zotero bibliography of relevant sources, which
@@ -613,8 +667,8 @@ it possible to document processing steps in written text, and, using
 flowcharts, also in a visually appealing way. Take the data repository
 <a
 href="https://mtwente.github.io/maxvogt-analysis"><strong>maxvogt-analysis</strong></a> <span
-class="citation" data-cites="twente2024"><a href="#ref-twente2024"
-role="doc-biblioref">[13]</a></span> for example. In this project,
+class="citation" data-cites="twente2024">[<a href="#ref-twente2024"
+role="doc-biblioref">13</a>]</span> for example. In this project,
 spatial data and design attributes of railway station architecture in
 Switzerland were collected to conduct a study in urban design history.
 While photographs were archived on Wikimedia Commons, a separate
@@ -641,8 +695,8 @@ outputs.</figcaption>
 <p>The possibility to add multimedia content to the research data
 documentation is also part of the project <a
 href="https://mtwente.github.io/modelling-marti"><strong>Modelling
-Marti</strong></a> <span class="citation" data-cites="twente2025b"><a
-href="#ref-twente2025b" role="doc-biblioref">[14]</a></span>, in which
+Marti</strong></a> <span class="citation" data-cites="twente2025b">[<a
+href="#ref-twente2025b" role="doc-biblioref">14</a>]</span>, in which
 topic modeling was applied to newspaper articles by Hans Marti, a
 pioneer of spatial planning in Switzerland. While the GitHub repository
 behind the Quarto website again stores the harvested data consisting of
@@ -677,11 +731,11 @@ research data documentation, notably in academic event and course
 contexts. We deployed the template for the <a
 href="https://digihistch24.github.io/"><strong>Digital History
 Switzerland 2024 conference</strong></a> <span class="citation"
-data-cites="baudry2024b"><a href="#ref-baudry2024b"
-role="doc-biblioref">[15]</a></span>. Here, the template was used to
+data-cites="baudry2024b">[<a href="#ref-baudry2024b"
+role="doc-biblioref">15</a>]</span>. Here, the template was used to
 publish the <em>book of abstracts</em> <span class="citation"
-data-cites="baudry2024a"><a href="#ref-baudry2024a"
-role="doc-biblioref">[16]</a></span> as an interactive digital
+data-cites="baudry2024a">[<a href="#ref-baudry2024a"
+role="doc-biblioref">16</a>]</span> as an interactive digital
 publication. Each abstract is a short, citable publication with
 references, some accompanied by dynamically generated visualizations.
 The site not only provided information to conference attendees but now
@@ -710,9 +764,9 @@ and inviting participation.</figcaption>
 <p>In a different vein, the <a
 href="https://dhbern.github.io/"><strong>Digital Humanities Bern (DH
 Bern) website</strong></a> <span class="citation"
-data-cites="digitalhumanitiesbern2025"><a
+data-cites="digitalhumanitiesbern2025">[<a
 href="#ref-digitalhumanitiesbern2025"
-role="doc-biblioref">[17]</a></span> was created with the template to
+role="doc-biblioref">17</a>]</span> was created with the template to
 serve as a hub for the University of Bern’s DH projects and activities.
 Unlike the focused research cases above, this website aggregates various
 content types: blog posts, project descriptions, and event
@@ -740,16 +794,17 @@ events.</figcaption>
 </figure>
 <p>We also created a course website for <a
 href="https://dhbern.github.io/decoding-inequality-2025/"><strong>Decoding
-Inequality</strong></a> <span class="citation" data-cites="huber2024"><a
-href="#ref-huber2024" role="doc-biblioref">[18]</a></span>, a university
-course by Rachel Huber and Moritz Mähr taught at the University of Bern
-for Digital Humanities students in 2025, using the template. This site
-hosted lecture notes, datasets for student exercises, and an interactive
-bibliography on machine learning and social inequality. Moreover, the
-contributions of the students were uploaded as well, turning the site
-into a collaborative space. The static nature of the deployed site means
-that it was reliable and fast for students to access, and although the
-course ended, it remains a publicly accessible resource.</p>
+Inequality</strong></a> <span class="citation"
+data-cites="huber2024">[<a href="#ref-huber2024"
+role="doc-biblioref">18</a>]</span>, a university course by Rachel Huber
+and Moritz Mähr taught at the University of Bern for Digital Humanities
+students in 2025, using the template. This site hosted lecture notes,
+datasets for student exercises, and an interactive bibliography on
+machine learning and social inequality. Moreover, the contributions of
+the students were uploaded as well, turning the site into a
+collaborative space. The static nature of the deployed site means that
+it was reliable and fast for students to access, and although the course
+ended, it remains a publicly accessible resource.</p>
 <figure id="fig-decoding-inequality" data-latex-placement="t!">
 <a href="figures/decoding_inequality_2025.png" data-lightbox="figures" data-title="Course description page for Decoding Inequality 2025, outlining the seminar’s critical approach to machine learning systems and their societal impacts."><img
 src="figures/decoding_inequality_2025.png" style="width:90.0%" /></a>
@@ -763,8 +818,8 @@ Handbooks</h2>
 <p>One of the most significant outcomes of our work has been the
 creation of a “living handbook” on <a
 href="https://maehr.github.io/diskriminierungsfreie-metadaten/"><strong>Non-discriminatory
-Metadata</strong></a> <span class="citation" data-cites="maehr2024d"><a
-href="#ref-maehr2024d" role="doc-biblioref">[19]</a></span> for
+Metadata</strong></a> <span class="citation" data-cites="maehr2024d">[<a
+href="#ref-maehr2024d" role="doc-biblioref">19</a>]</span> for
 historical collections. This handbook, published in 2024 by Moritz Mähr
 and Noëlle Schnegg, was built using the template and exemplifies how
 scholarly documents can remain dynamic. The handbook provides guidelines
@@ -802,8 +857,8 @@ Stadt.Geschichte.Basel project.</figcaption>
 <p>Finally, in a meta-turn, we even used the Open Research Data Template
 to create the <a
 href="https://maehr.github.io/one-template-to-rule-them-all/"><strong>presentation
-site</strong></a> <span class="citation" data-cites="mahr2025h"><a
-href="#ref-mahr2025h" role="doc-biblioref">[20]</a></span> for this very
+site</strong></a> <span class="citation" data-cites="mahr2025h">[<a
+href="#ref-mahr2025h" role="doc-biblioref">20</a>]</span> for this very
 paper, <em>One Template to Rule Them All</em>. The talk’s slides were
 prepared in Quarto, allowing us to generate a Reveal.js HTML slideshow
 for live presentation and a PowerPoint deck for backup, all from the
@@ -870,8 +925,8 @@ research.</p>
 <p>Finally, projects built with the template can function as standalone
 scholarly publications in their own right, challenging traditional
 publication models. The “living handbook” on <em>Non-discri­mi­na­tory
-Metadata</em> <span class="citation" data-cites="maehr2024d"><a
-href="#ref-maehr2024d" role="doc-biblioref">[19]</a></span> serves as a
+Metadata</em> <span class="citation" data-cites="maehr2024d">[<a
+href="#ref-maehr2024d" role="doc-biblioref">19</a>]</span> serves as a
 prime example. While it was not subjected to a conventional double-blind
 peer-review process, its publication on GitHub invites continuous open
 community review through the platform’s issues and pull request
@@ -942,136 +997,135 @@ collaboration.</p>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-goerlich2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">N.
-Görlich, M. Mähr, C. Münch, N. Schnegg, and M. Twente,
-<span>“Forschungsdatenplattform von Stadt.Geschichte.Basel.”</span>
-[Online]. Available: <a
-href="https://forschung.stadtgeschichtebasel.ch/">https://forschung.stadtgeschichtebasel.ch/</a></div>
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Görlich N, Mähr M, Münch C, Schnegg N, Twente
+M. Forschungsdatenplattform von Stadt.Geschichte.Basel 2023. <a
+href="https://forschung.stadtgeschichtebasel.ch/">https://forschung.stadtgeschichtebasel.ch/</a>.</div>
 </div>
 <div id="ref-maehr2024g" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">M.
-Mähr, N. Schnegg, and M. Twente, <span>“Stadt.Geschichte.Basel
-RDM.”</span> [Online]. Available: <a
-href="https://dokumentation.stadtgeschichtebasel.ch/">https://dokumentation.stadtgeschichtebasel.ch/</a></div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Mähr M, Schnegg N, Twente M.
+Stadt.Geschichte.Basel RDM 2024. <a
+href="https://dokumentation.stadtgeschichtebasel.ch/">https://dokumentation.stadtgeschichtebasel.ch/</a>.</div>
 </div>
 <div id="ref-wilkinson2016" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">M.
-D. Wilkinson <em>et al.</em>, <span>“The <span>FAIR Guiding
-Principles</span> for scientific data management and
-stewardship,”</span> <em>Sci Data</em>, vol. 3, no. 1, p. 160018, Mar.
-2016, doi: <a
-href="https://doi.org/10.1038/sdata.2016.18">10.1038/sdata.2016.18</a>.</div>
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">Wilkinson MD, Dumontier M, Aalbersberg IjJ,
+Appleton G, Axton M, Baak A, et al. The <span>FAIR Guiding
+Principles</span> for scientific data management and stewardship. Sci
+Data 2016;3:160018. <a
+href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.</div>
 </div>
 <div id="ref-hiltmann2018" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">T.
-Hiltmann, <span>“Forschungsdaten in der (digitalen)
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">Hiltmann T. Forschungsdaten in der (digitalen)
 Geschichtswissenschaft. Warum sie wichtig sind und wir gemeinsame
-Standards brauchen.”</span> [Online]. Available: <a
-href="https://digigw.hypotheses.org/2622">https://digigw.hypotheses.org/2622</a></div>
+Standards brauchen 2018. <a
+href="https://doi.org/10.58079/nmku">https://doi.org/10.58079/nmku</a>.</div>
 </div>
 <div id="ref-ruediger2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">D.
-Ruediger and R. MacDougall, <span>“Are the <span>Humanities Ready</span>
-for <span>Data Sharing</span>?”</span> Ithaka S+R, Mar. 2023. doi: <a
-href="https://doi.org/10.18665/sr.318526">10.18665/sr.318526</a>.</div>
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">Ruediger D, MacDougall R. Are the
+<span>Humanities Ready</span> for <span>Data Sharing</span>? Ithaka S+R;
+2023. <a
+href="https://doi.org/10.18665/sr.318526">https://doi.org/10.18665/sr.318526</a>.</div>
 </div>
 <div id="ref-mahr2023g" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">M.
-Mähr and M. Twente, <span>“Open <span>Research Data
-Template</span>.”</span> [Online]. Available: <a
-href="https://maehr.github.io/open-research-data-template/">https://maehr.github.io/open-research-data-template/</a></div>
+<div class="csl-left-margin">[6] </div><div
+class="csl-right-inline">Mähr M, Twente M. Open <span>Research Data
+Template</span> 2023. <a
+href="https://maehr.github.io/open-research-data-template/">https://maehr.github.io/open-research-data-template/</a>.</div>
 </div>
 <div id="ref-borgman2012" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">C.
-L. Borgman, <span>“The conundrum of sharing research data,”</span>
-<em>Journal of the American Society for Information Science and
-Technology</em>, vol. 63, no. 6, pp. 1059–1078, 2012, doi: <a
-href="https://doi.org/10.1002/asi.22634">10.1002/asi.22634</a>.</div>
+<div class="csl-left-margin">[7] </div><div
+class="csl-right-inline">Borgman CL. The conundrum of sharing research
+data. Journal of the American Society for Information Science and
+Technology 2012;63:1059–78. <a
+href="https://doi.org/10.1002/asi.22634">https://doi.org/10.1002/asi.22634</a>.</div>
 </div>
 <div id="ref-theturingwaycommunity2025" class="csl-entry"
 role="listitem">
 <div class="csl-left-margin">[8] </div><div class="csl-right-inline">The
-Turing Way Community, <em>The <span>Turing Way</span>: <span>A</span>
-handbook for reproducible, ethical and collaborative research</em>.
-(Apr. 14, 2025). Zenodo. doi: <a
-href="https://doi.org/10.5281/ZENODO.15213042">10.5281/ZENODO.15213042</a>.</div>
+Turing Way Community. The <span>Turing Way</span>: <span>A</span>
+handbook for reproducible, ethical and collaborative research 2025. <a
+href="https://doi.org/10.5281/ZENODO.15213042">https://doi.org/10.5281/ZENODO.15213042</a>.</div>
 </div>
 <div id="ref-rule2019" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[9] </div><div class="csl-right-inline">A.
-Rule <em>et al.</em>, <span>“Ten simple rules for writing and sharing
-computational analyses in <span>Jupyter Notebooks</span>,”</span>
-<em>PLOS Computational Biology</em>, vol. 15, no. 7, p. e1007007, July
-2019, doi: <a
-href="https://doi.org/10.1371/journal.pcbi.1007007">10.1371/journal.pcbi.1007007</a>.</div>
+<div class="csl-left-margin">[9] </div><div
+class="csl-right-inline">Rule A, Birmingham A, Zuniga C, Altintas I,
+Huang S-C, Knight R, et al. Ten simple rules for writing and sharing
+computational analyses in <span>Jupyter Notebooks</span>. PLOS
+Computational Biology 2019;15:e1007007. <a
+href="https://doi.org/10.1371/journal.pcbi.1007007">https://doi.org/10.1371/journal.pcbi.1007007</a>.</div>
 </div>
 <div id="ref-diekjobst2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[10] </div><div class="csl-right-inline">A.
-Diekjobst, T. Geelhaar, T. Hodel, M. Mähr, and M. Seltmann, <span>“2.3.
-Mit Standards forschen und Handlungsräume schaffen,”</span> Zenodo,
-2024. doi: <a
-href="https://doi.org/10.5281/ZENODO.12656766">10.5281/ZENODO.12656766</a>.</div>
+<div class="csl-left-margin">[10] </div><div
+class="csl-right-inline">Diekjobst A, Geelhaar T, Hodel T, Mähr M,
+Seltmann M. 2.3. Mit Standards forschen und Handlungsräume schaffen,
+Zenodo; 2024. <a
+href="https://doi.org/10.5281/ZENODO.12656766">https://doi.org/10.5281/ZENODO.12656766</a>.</div>
 </div>
 <div id="ref-twente2025c" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">M.
-Twente, <span>“Sgb-figures.”</span> [Online]. Available: <a
-href="https://dokumentation.stadtgeschichtebasel.ch/sgb-figures/">https://dokumentation.stadtgeschichtebasel.ch/sgb-figures/</a></div>
+<div class="csl-left-margin">[11] </div><div
+class="csl-right-inline">Twente M. Sgb-figures 2025. <a
+href="https://dokumentation.stadtgeschichtebasel.ch/sgb-figures/">https://dokumentation.stadtgeschichtebasel.ch/sgb-figures/</a>.</div>
 </div>
 <div id="ref-twente2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[12] </div><div class="csl-right-inline">M.
-Twente, <em>Nordatlantisk-ft</em>. (Jan. 16, 2024). Zenodo. doi: <a
-href="https://doi.org/10.5281/ZENODO.10517955">10.5281/ZENODO.10517955</a>.</div>
+<div class="csl-left-margin">[12] </div><div
+class="csl-right-inline">Twente M. Nordatlantisk-ft 2024. <a
+href="https://doi.org/10.5281/ZENODO.10517955">https://doi.org/10.5281/ZENODO.10517955</a>.</div>
 </div>
 <div id="ref-twente2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[13] </div><div class="csl-right-inline">M.
-Twente and L. Omonsky, <span>“Maxvogt-analysis.”</span> [Online].
-Available: <a
-href="https://mtwente.github.io/maxvogt-analysis/">https://mtwente.github.io/maxvogt-analysis/</a></div>
+<div class="csl-left-margin">[13] </div><div
+class="csl-right-inline">Twente M, Omonsky L. Maxvogt-analysis 2024. <a
+href="https://mtwente.github.io/maxvogt-analysis/">https://mtwente.github.io/maxvogt-analysis/</a>.</div>
 </div>
 <div id="ref-twente2025b" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[14] </div><div class="csl-right-inline">M.
-Twente, <span>“Modelling <span>Marti</span>.”</span> [Online].
-Available: <a
-href="https://mtwente.github.io/modelling-marti/">https://mtwente.github.io/modelling-marti/</a></div>
+<div class="csl-left-margin">[14] </div><div
+class="csl-right-inline">Twente M. Modelling <span>Marti</span> 2025. <a
+href="https://mtwente.github.io/modelling-marti/">https://mtwente.github.io/modelling-marti/</a>.</div>
 </div>
 <div id="ref-baudry2024b" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[15] </div><div class="csl-right-inline">J.
-Baudry <em>et al.</em>, <span>“Historical <span>Research</span>,
-<span>Digital Literacy</span> and <span>Algorithmic
-Criticism</span>.”</span> [Online]. Available: <a
-href="https://digihistch24.github.io/">https://digihistch24.github.io/</a></div>
+<div class="csl-left-margin">[15] </div><div
+class="csl-right-inline">Baudry J, Burkart L, Joyeux-Prunel B, Kurmann
+E, Mähr M, Natale E, et al. Historical <span>Research</span>,
+<span>Digital Literacy</span> and <span>Algorithmic Criticism</span>
+2024. <a
+href="https://digihistch24.github.io/">https://digihistch24.github.io/</a>.</div>
 </div>
 <div id="ref-baudry2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[16] </div><div class="csl-right-inline">J.
-Baudry <em>et al.</em>, Eds., <em>Book of <span>Abstracts</span></em>,
-Digital History Switzerland 2024. Basel: Zenodo, 2024. Available: <a
-href="https://digihistch24.github.io/book-of-abstracts/">https://digihistch24.github.io/book-of-abstracts/</a></div>
+<div class="csl-left-margin">[16] </div><div
+class="csl-right-inline">Baudry J, Burkart L, Joyeux-Prunel B, Kurmann
+E, Mähr M, Natale E, et al., editors. <a
+href="https://digihistch24.github.io/book-of-abstracts/">Book of
+<span>Abstracts</span></a>. Digital History Switzerland 2024. Basel:
+Zenodo; 2024.</div>
 </div>
 <div id="ref-digitalhumanitiesbern2025" class="csl-entry"
 role="listitem">
 <div class="csl-left-margin">[17] </div><div
-class="csl-right-inline">Digital Humanities Bern, <span>“Blog.”</span>
-[Online]. Available: <a
-href="https://dhbern.github.io/">https://dhbern.github.io/</a></div>
+class="csl-right-inline">Digital Humanities Bern. Blog 2025. <a
+href="https://dhbern.github.io/">https://dhbern.github.io/</a>.</div>
 </div>
 <div id="ref-huber2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[18] </div><div class="csl-right-inline">R.
-Huber and M. Mähr, <span>“Decoding Inequality 2025.”</span> [Online].
-Available: <a
-href="https://dhbern.github.io/decoding-inequality-2025/">https://dhbern.github.io/decoding-inequality-2025/</a></div>
+<div class="csl-left-margin">[18] </div><div
+class="csl-right-inline">Huber R, Mähr M. Decoding Inequality 2025 2024.
+<a
+href="https://dhbern.github.io/decoding-inequality-2025/">https://dhbern.github.io/decoding-inequality-2025/</a>.</div>
 </div>
 <div id="ref-maehr2024d" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[19] </div><div class="csl-right-inline">M.
-Mähr and N. Schnegg, <span>“Handbuch zur Erstellung
+<div class="csl-left-margin">[19] </div><div
+class="csl-right-inline">Mähr M, Schnegg N. Handbuch zur Erstellung
 diskriminierungsfreier Metadaten für historische Quellen und
-Forschungsdaten,”</span> May 2024, doi: <a
-href="https://doi.org/10.5281/zenodo.11124720">10.5281/zenodo.11124720</a>.</div>
+Forschungsdaten 2024. <a
+href="https://doi.org/10.5281/zenodo.11124720">https://doi.org/10.5281/zenodo.11124720</a>.</div>
 </div>
 <div id="ref-mahr2025h" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[20] </div><div class="csl-right-inline">M.
-Mähr and M. Twente, <em>One <span>Template</span> to <span>Rule Them
-All</span>: <span>Interactive Research Data Documentation</span> with
-<span>Quarto</span></em>. (July 17, 2025). Zenodo. doi: <a
-href="https://doi.org/10.5281/ZENODO.16045573">10.5281/ZENODO.16045573</a>.</div>
+<div class="csl-left-margin">[20] </div><div
+class="csl-right-inline">Mähr M, Twente M. One <span>Template</span> to
+<span>Rule Them All</span>: <span>Interactive Research Data
+Documentation</span> with <span>Quarto</span> 2025. <a
+href="https://doi.org/10.5281/ZENODO.16045573">https://doi.org/10.5281/ZENODO.16045573</a>.</div>
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
@@ -1163,8 +1217,8 @@ role="doc-backlink">↩︎</a></p></li>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';

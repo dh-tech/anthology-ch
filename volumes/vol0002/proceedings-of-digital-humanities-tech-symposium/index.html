@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proceedings of Digital Humanities Tech Symposium 2025: Introduction</title>
+  <title>There and back again—how to preserve your data during transformations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,30 +12,26 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/proceedings-of-digital-humanities-tech-symposium/">
-  <meta name="citation_title" content="Proceedings of Digital Humanities Tech Symposium 2025: Introduction">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/proceedings-of-digital-humanities-tech-symposium/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
   <meta name="citation_volume" content="2">
-  <meta name="citation_firstpage" content="1">
-  <meta name="citation_lastpage" content="5">
-  <meta name="citation_doi" content="10.63744/u9uSXsdmUSMW">
-  <meta name="citation_author" content="Koeser, Rebecca Sutton">
-  <meta name="citation_author" content="Hernandez, Jose Angel">
-  <meta name="citation_author" content="Damerow, Julia">
-  <meta name="citation_author" content="Vogl, Malte">
+  <meta name="citation_firstpage" content="6">
+  <meta name="citation_lastpage" content="12">
+  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
   <meta name="citation_author" content="Casties, Robert">
   
   <meta name="citation_editor" content="Damerow, Julia">
   <meta name="citation_editor" content="Koeser, Rebecca Sutton">
   
-  <meta name="citation_abstract" content="Abstract We present and introduce the proceedings from the Digital Humanities Tech Symposium 2025, a one-day workshop organized by DHTech and held at the Alliance of Digital Humanities Organizations (ADHO) 2025 conference in Lisbon, Portugal. We provide background on DHTech (an ADHO Special Interest Group), discuss the challenges of presenting and publishing on the technical aspects of work in Digital Humanities, and describe the submission and review process for the Symposium presentations and proceedings papers. We conclude with reflections on the challenges of writing about and reviewing technical work such as the papers included in this volume, and our hopes for continuing to improving the spaces and processes for this work in the future.">
+  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="digital humanities; proceedings; technical; research software; dhtech">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/proceedings-of-digital-humanities-tech-symposium/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/proceedings-of-digital-humanities-tech-symposium/10.63744@u9uSXsdmUSMW.pdf">
+  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
@@ -47,7 +43,7 @@
     /* Custom styles for better lightbox integration */
     figure {
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 0 3em 0;
     }
 
     figure img {
@@ -77,6 +73,25 @@
       color: #666;
     }
 
+    /* Center wide tables in the viewport */
+    div[id^="tab:"] {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+
+    /* Prevent text wrapping in table cells */
+    div[id^="tab:"] table td,
+    div[id^="tab:"] table th {
+      white-space: nowrap;
+    }
+
     /* Enhanced code block styles */
     .sourceCode {
       position: relative;
@@ -96,6 +111,42 @@
     code.sourceCode {
       background-color: transparent;
       padding: 0;
+    }
+
+    /* Styles for code blocks wrapped in figures (auto-generated structure) */
+    figure.float.listing {
+      text-align: left;
+      margin: 2em 0;
+    }
+
+    div.float-body.listing {
+      position: relative;
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1em;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    figure.float.listing pre {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    figure.float.listing code {
+      background-color: transparent;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Make sure syntax highlighting applies to code in figures */
+    figure.float.listing pre > code {
+      white-space: pre;
+      position: relative;
     }
 
     /* Copy button styles */
@@ -154,6 +205,7 @@
       margin-left: 0.5em;   /* pushes the block right a bit */
     }
   </style>
+
 
 </head>
 <body>
@@ -305,8 +357,8 @@ founding after a workshop at DH2017 in Montreal, DHTech has been active
 in organizing workshops, mini-conferences and meet-ups to foster
 community and share knowledge. Once DHTech became an official ADHO
 Special Interest Group (SIG) in 2021 <span class="citation"
-data-cites="noauthor_adho_nodate"><a href="#ref-noauthor_adho_nodate"
-role="doc-biblioref">[1]</a></span>, we have organized pre-conference
+data-cites="noauthor_adho_nodate">[<a href="#ref-noauthor_adho_nodate"
+role="doc-biblioref">1</a>]</span>, we have organized pre-conference
 workshops every year for the annual ADHO conference.<a href="#fn1"
 class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We
 make an effort to document and share the outcome of our events,
@@ -316,15 +368,15 @@ everyone to join. Our event post-publications range from informal blog
 posts writing up conversations and resources from virtual meet-ups, to
 white papers like the one that came out of a workshop at the DH2019
 conference in Utrecht <span class="citation"
-data-cites="noauthor_dh_nodate"><a href="#ref-noauthor_dh_nodate"
-role="doc-biblioref">[3]</a></span>, to published articles such as the
+data-cites="noauthor_dh_nodate">[<a href="#ref-noauthor_dh_nodate"
+role="doc-biblioref">3</a>]</span>, to published articles such as the
 2024 paper on code review, which expanded on a poster presented by
 members of the DHTech Code Review Working group at DH2022 <span
 class="citation"
-data-cites="damerow_code_2025 damerow_establishing_2022"><a
-href="#ref-damerow_code_2025" role="doc-biblioref">[4]</a>, <a
+data-cites="damerow_code_2025 damerow_establishing_2022">[<a
+href="#ref-damerow_code_2025" role="doc-biblioref">4</a>,<a
 href="#ref-damerow_establishing_2022"
-role="doc-biblioref">[5]</a></span>.</p>
+role="doc-biblioref">5</a>]</span>.</p>
 <p>DHTech is an international grassroots community of people in the
 Digital Humanities (DH) community whose professional responsibilities
 involve the development of research software; members include research
@@ -336,8 +388,8 @@ identifies as developer or RSE. DHTech was established to “support the
 development and reuse of software in the Digital Humanities by providing
 a community to exchange knowledge, share expertise, and foster
 collaboration” <span class="citation"
-data-cites="noauthor_about_nodate"><a href="#ref-noauthor_about_nodate"
-role="doc-biblioref">[6]</a></span>. Our mission is to establish and
+data-cites="noauthor_about_nodate">[<a href="#ref-noauthor_about_nodate"
+role="doc-biblioref">6</a>]</span>. Our mission is to establish and
 improve practices related to developing and maintaining research
 software, tools, and infrastructure in the digital humanities, topics
 that often receive limited attention within the broader DH community. We
@@ -347,16 +399,16 @@ Research Software Engineering in DH that the technical community is
 quite dispersed, and there is no single conference everyone doing
 technical DH work attends, but that the annual ADHO conference is
 currently the best option for an in-person gathering <span
-class="citation" data-cites="damerow_surveying_2025"><a
+class="citation" data-cites="damerow_surveying_2025">[<a
 href="#ref-damerow_surveying_2025"
-role="doc-biblioref">[7]</a></span>.</p>
+role="doc-biblioref">7</a>]</span>.</p>
 <p>In spite of our commitment to presenting and sharing on the technical
 aspects of Digital Humanities work, it remains difficult to find venues
 to present and publish on this work. In the models of conference
 material dissemination listed by the editors of this Anthology, we
 typically fall between “none” and “self-archiving” <span
-class="citation" data-cites="10.63744@rWDzgqfDLYNm"><a
-href="#ref-10.63744@rWDzgqfDLYNm" role="doc-biblioref">[8]</a></span>,
+class="citation" data-cites="10.63744@rWDzgqfDLYNm">[<a
+href="#ref-10.63744@rWDzgqfDLYNm" role="doc-biblioref">8</a>]</span>,
 usually by posting materials on the <a
 href="https://dh-tech.github.io/">DHTech website</a>.<a href="#fn2"
 class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> We
@@ -364,8 +416,8 @@ are grateful for the leadership of the Association for Computers and the
 Humanities (ACH) and editors of the new <em>Anthology of Computers and
 the Humanities</em> for their “inclusive and generous sense” of Digital
 Humanities work <span class="citation"
-data-cites="10.63744@rWDzgqfDLYNm"><a href="#ref-10.63744@rWDzgqfDLYNm"
-role="doc-biblioref">[8]</a></span> and offering opening this space for
+data-cites="10.63744@rWDzgqfDLYNm">[<a href="#ref-10.63744@rWDzgqfDLYNm"
+role="doc-biblioref">8</a>]</span> and offering opening this space for
 us to document and share more widely the work of the technical community
 represented by DHTech. We are also encouraged by recent developments in
 this space, including the <a
@@ -374,12 +426,12 @@ paper</a><a href="#fn3" class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a> in the <em>Computational Humanities
 Research</em> journal, and the technical track in the call for proposals
 for the DH2026 conference <span class="citation"
-data-cites="noauthor_cfp_nodate"><a href="#ref-noauthor_cfp_nodate"
-role="doc-biblioref">[9]</a></span>, which expands on the earlier
+data-cites="noauthor_cfp_nodate">[<a href="#ref-noauthor_cfp_nodate"
+role="doc-biblioref">9</a>]</span>, which expands on the earlier
 technical review option made available for DH2024 conference submissions
-<span class="citation" data-cites="noauthor_call_nodate"><a
+<span class="citation" data-cites="noauthor_call_nodate">[<a
 href="#ref-noauthor_call_nodate"
-role="doc-biblioref">[10]</a></span>.</p>
+role="doc-biblioref">10</a>]</span>.</p>
 <p>The papers included in these proceedings are based on presentations
 included in the <em>Digital Humanities Tech Symposium</em>, a one-day
 workshop organized by DHTech held on July 14th, 2025 as part of the
@@ -428,8 +480,8 @@ given a deadline to submit a final version two weeks after the DH2025
 conference. Our goal was to take advantage of the proceedings
 publication model for “rapid dissemination and citation of work that has
 been presented to and reviewed by experts” <span class="citation"
-data-cites="10.63744@rWDzgqfDLYNm"><a href="#ref-10.63744@rWDzgqfDLYNm"
-role="doc-biblioref">[8]</a></span>, and to avoid the work becoming
+data-cites="10.63744@rWDzgqfDLYNm">[<a href="#ref-10.63744@rWDzgqfDLYNm"
+role="doc-biblioref">8</a>]</span>, and to avoid the work becoming
 outdated due to the fast pace of change of technology. We recruited a
 second round of reviewers, which included paper authors as well as other
 DHTech members who attended the symposium, and facilitated a second
@@ -468,8 +520,8 @@ pragmatic reasons can also be a fun technical challenge.</p>
 <p>We recognize that the role and process for conference proceedings
 varies by field, and that papers are typically peer-reviewed in advance
 of the conference <span class="citation"
-data-cites="10.63744@rWDzgqfDLYNm"><a href="#ref-10.63744@rWDzgqfDLYNm"
-role="doc-biblioref">[8]</a></span>. We look forward to having a
+data-cites="10.63744@rWDzgqfDLYNm">[<a href="#ref-10.63744@rWDzgqfDLYNm"
+role="doc-biblioref">8</a>]</span>. We look forward to having a
 proceedings publication option at the outset when organizing future
 DHTech events, and will continue to refine guidelines for authors and
 reviewers that are relevant and helpful for a diverse range of technical
@@ -520,73 +572,68 @@ class="header-section-number">B</span> Reviewers</h1>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-noauthor_adho_nodate" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div
-class="csl-right-inline"><span>“<span>ADHO</span> <span>Special</span>
-<span>Interest</span> <span>Group</span>.”</span> Available: <a
-href="https://dh-tech.github.io/SIG/">https://dh-tech.github.io/SIG/</a></div>
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><a
+href="https://dh-tech.github.io/SIG/"><span>ADHO</span>
+<span>Special</span> <span>Interest</span> <span>Group</span></a>
+n.d.</div>
 </div>
 <div id="ref-damerow_lets_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">J.
-Damerow, <span>“Let’s take a moment to celebrate ourselves!”</span>
-<em>DHTech</em>. Sept. 2025. Available: <a
-href="https://dh-tech.github.io/blog/2025/10/01/lets-take-a-moment-to-celebrate-ourselves/">https://dh-tech.github.io/blog/2025/10/01/lets-take-a-moment-to-celebrate-ourselves/</a></div>
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Damerow J. <a
+href="https://dh-tech.github.io/blog/2025/10/01/lets-take-a-moment-to-celebrate-ourselves/">Let’s
+take a moment to celebrate ourselves!</a> DHTech 2025.</div>
 </div>
 <div id="ref-noauthor_dh_nodate" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div
-class="csl-right-inline"><span>“The <span>DH</span> <span>RSE</span>
-<span>Workshop</span> <span>White</span> <span>Paper</span> by
-<span>DHTech</span>.”</span> Available: <a
-href="https://dh-tech.github.io/dhrse-whitepaper/">https://dh-tech.github.io/dhrse-whitepaper/</a></div>
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline"><a
+href="https://dh-tech.github.io/dhrse-whitepaper/">The <span>DH</span>
+<span>RSE</span> <span>Workshop</span> <span>White</span>
+<span>Paper</span> by <span>DHTech</span></a> n.d.</div>
 </div>
 <div id="ref-damerow_code_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">J.
-Damerow, R. S. Koeser, J. C. Carver, and M. Vogl, <span>“Code review in
-digital humanities,”</span> <em>Digital Scholarship in the
-Humanities</em>, vol. 40, no. Supplement_1, pp. i18–i26, Jan. 2025, doi:
-<a
-href="https://doi.org/10.1093/llc/fqae052">10.1093/llc/fqae052</a>.</div>
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">Damerow J, Koeser RS, Carver JC, Vogl M. Code
+review in digital humanities. Digital Scholarship in the Humanities
+2025;40:i18–26. <a
+href="https://doi.org/10.1093/llc/fqae052">https://doi.org/10.1093/llc/fqae052</a>.</div>
 </div>
 <div id="ref-damerow_establishing_2022" class="csl-entry"
 role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">J.
-Damerow <em>et al.</em>, <span>“Establishing a <span>Code</span>
-<span>Review</span> <span>Community</span> for <span>DH</span>.”</span>
-Tokyo, Japan, July 2022. doi: <a
-href="https://doi.org/10.5281/zenodo.7935109">10.5281/zenodo.7935109</a>.</div>
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">Damerow J, Koeser RS, Gao A, Vogl M, Zandbank
+I, Tharsen J, et al. Establishing a <span>Code</span>
+<span>Review</span> <span>Community</span> for <span>DH</span> 2022. <a
+href="https://doi.org/10.5281/zenodo.7935109">https://doi.org/10.5281/zenodo.7935109</a>.</div>
 </div>
 <div id="ref-noauthor_about_nodate" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div
-class="csl-right-inline"><span>“About <span>DHTech</span>.”</span>
-Available: <a
-href="https://dh-tech.github.io/about/">https://dh-tech.github.io/about/</a></div>
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline"><a
+href="https://dh-tech.github.io/about/">About <span>DHTech</span></a>
+n.d.</div>
 </div>
 <div id="ref-damerow_surveying_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J.
-Damerow, R. Koeser, and C. Crawford, <span>“Surveying the
+<div class="csl-left-margin">[7] </div><div
+class="csl-right-inline">Damerow J, Koeser R, Crawford C. Surveying the
 <span>Digital</span> <span>Humanities</span> <span>Research</span>
-<span>Software</span> <span>Engineering</span>
-<span>Landscape</span>.”</span> Lisbon, Portugal, July 2025. doi: <a
-href="https://doi.org/10.5281/zenodo.15863899">10.5281/zenodo.15863899</a>.</div>
+<span>Software</span> <span>Engineering</span> <span>Landscape</span>
+2025. <a
+href="https://doi.org/10.5281/zenodo.15863899">https://doi.org/10.5281/zenodo.15863899</a>.</div>
 </div>
 <div id="ref-10.63744@rWDzgqfDLYNm" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">T.
-Arnold <em>et al.</em>, <span>“Introducing the anthology for computers
-and the humanities,”</span> <em>Anthology for Computers and the
-Humanities</em>, vol. 1, pp. 1–5, 2025, doi: <a
-href="https://doi.org/10.63744/rWDzgqfDLYNm">10.63744/rWDzgqfDLYNm</a>.</div>
+<div class="csl-left-margin">[8] </div><div
+class="csl-right-inline">Arnold T, Antoniak M, Varela ME, Puren M, Oiva
+M, Regan A, et al. Introducing the anthology for computers and the
+humanities. Anthology for Computers and the Humanities 2025;1:1–5. <a
+href="https://doi.org/10.63744/rWDzgqfDLYNm">https://doi.org/10.63744/rWDzgqfDLYNm</a>.</div>
 </div>
 <div id="ref-noauthor_cfp_nodate" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[9] </div><div
-class="csl-right-inline"><span>“<span>CFP</span> – <span>DH2026</span>
-in <span>Daejeon</span>, <span>South</span> <span>Korea</span>.”</span>
-Available: <a
-href="https://dh2026.adho.org/cfp/">https://dh2026.adho.org/cfp/</a></div>
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline"><a
+href="https://dh2026.adho.org/cfp/"><span>CFP</span> –
+<span>DH2026</span> in <span>Daejeon</span>, <span>South</span>
+<span>Korea</span></a> n.d.</div>
 </div>
 <div id="ref-noauthor_call_nodate" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[10] </div><div
-class="csl-right-inline"><span>“Call for <span>Proposals</span> –
-<span>DH2024</span>.”</span> Available: <a
-href="https://dh2024.adho.org/index.html%3Fp=100.html">https://dh2024.adho.org/index.html%3Fp=100.html</a></div>
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline"><a
+href="https://dh2024.adho.org/index.html%3Fp=100.html">Call for
+<span>Proposals</span> – <span>DH2024</span></a> n.d.</div>
 </div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
@@ -595,8 +642,8 @@ role="doc-endnotes">
 <ol>
 <li id="fn1"><p>For more on the history of DHTech and current efforts,
 see Julia Damerow’s recent blog post celebrating eight years of DHTech.
-<span class="citation" data-cites="damerow_lets_2025"><a
-href="#ref-damerow_lets_2025" role="doc-biblioref">[2]</a></span>.<a
+<span class="citation" data-cites="damerow_lets_2025">[<a
+href="#ref-damerow_lets_2025" role="doc-biblioref">2</a>]</span>.<a
 href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>https://dh-tech.github.io/<a href="#fnref2"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -666,8 +713,8 @@ href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 
     // Add copy buttons to code blocks
     document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks
-      const codeBlocks = document.querySelectorAll('div.sourceCode');
+      // Find all code blocks (both .sourceCode and figure-wrapped ones)
+      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
 
       // SVG icons
       const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';
