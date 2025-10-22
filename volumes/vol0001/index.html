@@ -10,13 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../../css/site.css">
-  <style>
-    .box {
-      width: 95%;
-      margin-top: 25px;
-      margin-left: 25px;
-    }
-  </style>
+  <link rel="stylesheet" href="../../css/volume.css">
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -40,7 +34,7 @@
         <a class="navbar-item" href="https://anthology.ach.org/">
           <b>Home</b>
         </a>
-        <a class="navbar-item" href="https://anthology.ach.org/volumes/vol0001">
+        <a class="navbar-item" href="https://anthology.ach.org/volumes/">
           <b>Volumes</b>
         </a>
         <a class="navbar-item" href="https://anthology.ach.org/about">
@@ -98,27 +92,9 @@
     </div>
   </footer>
 
-  
-  <script>
-    // Navbar burger menu functionality
-    document.addEventListener('DOMContentLoaded', () => {
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-    
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    });
-  </script>
+
+  <!-- Custom JavaScript -->
+  <script src="../../js/navbar.js"></script>
 
 </body>
 </html>

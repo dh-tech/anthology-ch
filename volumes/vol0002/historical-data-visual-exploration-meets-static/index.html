@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>There and back again—how to preserve your data during transformations</title>
+  <title>Historical data visual exploration meets static web technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,199 +12,31 @@
   <link rel="stylesheet" href="../../../css/site.css">
 
   <!-- citation information -->
-  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
-  <meta name="citation_title" content="There and back again—how to preserve your data during transformations">
+  <link rel="canonical" href="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/">
+  <meta name="citation_title" content="Historical data visual exploration meets static web technologies">
   <meta name="citation_date" content="2025">
-  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
+  <meta name="citation_public_url" content="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/">
   <meta name="citation_journal_title" content="Anthology of Computers and the Humanities">
   <meta name="citation_issn" content="">
   <meta name="citation_volume" content="2">
-  <meta name="citation_firstpage" content="6">
-  <meta name="citation_lastpage" content="12">
-  <meta name="citation_doi" content="10.63744/GJCCSMz4QBbD">
-  <meta name="citation_author" content="Casties, Robert">
-  
+  <meta name="citation_firstpage" content="25">
+  <meta name="citation_lastpage" content="31">
+  <meta name="citation_doi" content="10.63744/K0GZLdLczoqm">
+  <meta name="citation_author" content="Girard, Paul">
   <meta name="citation_editor" content="Damerow, Julia">
   <meta name="citation_editor" content="Koeser, Rebecca Sutton">
-  
-  <meta name="citation_abstract" content="Abstract Datasets often need to be transformed—from an external file format into a database, from one database system into another, or from an outdated legacy system into an archive format. All transformations carry the risk of data corruption through software errors. What can software developers do to check data integrity and make sure that data is not lost or changed in the process? This paper presents three basic approaches with different degrees of accuracy and complexity, illustrated by real-world examples. The first example shows simple end-to-end statistics by counting entities during the import of a dataset into a database, the next more complex example shows bookkeeping of entities during the conversion of an HTML website, and the last a full round-trip migration and comparison of a project database and data model.">
+  <meta name="citation_abstract" content="Abstract The Reg⋅Arts project delivers a serverless web app to explore 12,000 digitized student records (1813–1968) from the École des beaux-arts de Paris, using client-side faceted search, historical maps, and network visualizations. By compressing data and employing static vector tiles, it avoids the back-end infrastructure while ensuring historical accuracy and low maintenance. This approach demonstrates how static web technologies can support sustainable, user-friendly digital humanities tools.">
   <meta name="citation_language" content="en">
-  <meta name="citation_keywords" content="software; best practice; data integrity; digital humanities">
-  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/">
-  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/there-back-again-how-to-preserve-your-data-during/10.63744@GJCCSMz4QBbD.pdf">
+  <meta name="citation_keywords" content="Historical map; Vector map; Static web; Art History">
+  <meta name="citation_fulltext_html_url" content="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/">
+  <meta name="citation_pdf_url" content="https://anthology.ach.org/volumes/vol0002/historical-data-visual-exploration-meets-static/10.63744@K0GZLdLczoqm.pdf">
 
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
 
   <!-- Pandoc syntax highlighting CSS -->
   <link rel="stylesheet" href="../../../css/syntax-highlighting.css" />
-
-  <style>
-    /* Custom styles for better lightbox integration */
-    figure {
-      text-align: center;
-      margin: 2em 0 3em 0;
-    }
-
-    figure img {
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    figure img:hover {
-      opacity: 0.85;
-    }
-
-    figcaption {
-      margin-top: 0.5em;
-      font-style: italic;
-      color: #666;
-    }
-
-    /* Table caption styling - match figure captions */
-    table {
-      caption-side: bottom;
-    }
-
-    table caption {
-      margin-top: 0.5em;
-      margin-bottom: 0;
-      font-style: italic;
-      color: #666;
-    }
-
-    /* Center wide tables in the viewport */
-    div[id^="tab:"] {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      width: fit-content;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2em;
-    }
-
-    /* Prevent text wrapping in table cells */
-    div[id^="tab:"] table td,
-    div[id^="tab:"] table th {
-      white-space: nowrap;
-    }
-
-    /* Enhanced code block styles */
-    .sourceCode {
-      position: relative;
-      background-color: #f5f5f5;
-      border-radius: 6px;
-      padding: 1em;
-      margin: 1em 0;
-      overflow-x: auto;
-    }
-
-    pre.sourceCode {
-      margin: 0;
-      padding: 0;
-      background-color: transparent;
-    }
-
-    code.sourceCode {
-      background-color: transparent;
-      padding: 0;
-    }
-
-    /* Styles for code blocks wrapped in figures (auto-generated structure) */
-    figure.float.listing {
-      text-align: left;
-      margin: 2em 0;
-    }
-
-    div.float-body.listing {
-      position: relative;
-      background-color: #f5f5f5;
-      border-radius: 6px;
-      padding: 1em;
-      margin: 0;
-      overflow-x: auto;
-    }
-
-    figure.float.listing pre {
-      margin: 0;
-      padding: 0;
-      background-color: transparent;
-      overflow: visible;
-    }
-
-    figure.float.listing code {
-      background-color: transparent;
-      padding: 0;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.9em;
-      line-height: 1.5;
-    }
-
-    /* Make sure syntax highlighting applies to code in figures */
-    figure.float.listing pre > code {
-      white-space: pre;
-      position: relative;
-    }
-
-    /* Copy button styles */
-    .code-copy-button {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      padding: 6px;
-      background-color: #ffffff;
-      border: 1px solid #d0d0d0;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 12px;
-      color: #333;
-      transition: all 0.2s ease;
-      z-index: 10;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .code-copy-button:hover {
-      background-color: #e8e8e8;
-      border-color: #b0b0b0;
-    }
-
-    .code-copy-button:active {
-      background-color: #d8d8d8;
-    }
-
-    .code-copy-button.copied {
-      background-color: #4CAF50;
-      color: white;
-      border-color: #4CAF50;
-    }
-
-    .csl-entry {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 0.5em; /* optional: adds space between entries */
-    }
-
-    .csl-left-margin {
-      width: 2.5em;       /* adjust for number width, e.g. [10] */
-      flex-shrink: 0;     /* don’t let the number area shrink */
-    }
-
-    .csl-right-inline {
-      flex: 1;
-      padding-left: 0.5em;  /* small gap between number and text */
-      text-indent: -0.5em;  /* hanging indent effect */
-      margin-left: 0.5em;   /* pushes the block right a bit */
-    }
-  </style>
+  <link rel="stylesheet" href="../../../css/article.css" />
 
 
 </head>
@@ -230,7 +62,7 @@
         <a class="navbar-item" href="https://anthology.ach.org/">
           <b>Home</b>
         </a>
-        <a class="navbar-item" href="https://anthology.ach.org/volumes/vol0001">
+        <a class="navbar-item" href="https://anthology.ach.org/volumes/">
           <b>Volumes</b>
         </a>
         <a class="navbar-item" href="https://anthology.ach.org/about">
@@ -305,7 +137,7 @@
           <b>Permanent Link:</b> <a class="doi-link" href="https://doi.org/10.63744/K0GZLdLczoqm" target="_blank">https://doi.org/10.63744/K0GZLdLczoqm</a>
         </p>
         <p class="is-size-6">
-          <b>Published:</b> 17 October 2025
+          <b>Published:</b> 22 October 2025
         </p>
       </div>
 
@@ -493,7 +325,7 @@ and apply custom styles to tune colors and shapes.</p>
 that depend on third-party data providers. To adhere to our no-server
 constraint, we used the <a href="https://protomaps.com/">Protomaps</a><a
 href="#fn9" class="footnote-ref" id="fnref9"
-role="doc-noteref"><sup>9</sup></a> provider and the <a
+role="doc-noteref"><sup>9</sup></a>provider and the <a
 href="https://docs.protomaps.com/pmtiles/"><code>pmtiles</code>
 protocol</a><a href="#fn10" class="footnote-ref" id="fnref10"
 role="doc-noteref"><sup>10</sup></a>, which allows a client-side map
@@ -640,11 +472,14 @@ Blanc and Lola Duval. See <a
 href="https://regarts.huma-num.fr/a-propos#lequipe">complete credits</a>
 (in French only).<a href="#fnref2" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>https://jamstack.org/<a href="#fnref3"
+<li id="fn3"><p><a href="https://jamstack.org/"
+class="uri">https://jamstack.org/</a><a href="#fnref3"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>https://www.huma-num.fr/<a href="#fnref4"
+<li id="fn4"><p><a href="https://www.huma-num.fr/"
+class="uri">https://www.huma-num.fr/</a><a href="#fnref4"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>https://gitlab.huma-num.fr/regarts/<a href="#fnref5"
+<li id="fn5"><p><a href="https://gitlab.huma-num.fr/regarts/"
+class="uri">https://gitlab.huma-num.fr/regarts/</a><a href="#fnref5"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>see <a
 href="https://gitlab.huma-num.fr/regarts/website/-/blob/main/.gitlab-ci.yml">website</a>
@@ -652,32 +487,42 @@ and <a
 href="https://gitlab.huma-num.fr/regarts/corpus/-/blob/main/.gitlab-ci.yml">dataset</a>
 build scripts<a href="#fnref6" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>https://leafletjs.com/<a href="#fnref7"
+<li id="fn7"><p><a href="https://leafletjs.com/"
+class="uri">https://leafletjs.com/</a><a href="#fnref7"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>https://maplibre.org/<a href="#fnref8"
+<li id="fn8"><p><a href="https://maplibre.org/"
+class="uri">https://maplibre.org/</a><a href="#fnref8"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9"><p>https://protomaps.com/<a href="#fnref9"
+<li id="fn9"><p><a href="https://protomaps.com/"
+class="uri">https://protomaps.com/</a><a href="#fnref9"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn10"><p>https://docs.protomaps.com/pmtiles/<a href="#fnref10"
+<li id="fn10"><p><a href="https://docs.protomaps.com/pmtiles/"
+class="uri">https://docs.protomaps.com/pmtiles/</a><a href="#fnref10"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn11"><p>We used the now deprecating version
 https://github.com/mapbox/tippecanoe. The active version is now the fork
-https://github.com/felt/tippecanoe<a href="#fnref11"
+<a href="https://github.com/felt/tippecanoe"
+class="uri">https://github.com/felt/tippecanoe</a><a href="#fnref11"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn12"><p>https://github.com/aourednik/historical-basemaps<a
 href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn13"><p>Those maps are hosted by a third-party service. It’s an
 exception from our "serverless" rule.<a href="#fnref13"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn14"><p>https://ptm.huma-num.fr/<a href="#fnref14"
+<li id="fn14"><p><a href="https://ptm.huma-num.fr/"
+class="uri">https://ptm.huma-num.fr/</a><a href="#fnref14"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn15"><p>https://regarts.huma-num.fr/v/naissance<a
+<li id="fn15"><p><a href="https://regarts.huma-num.fr/v/naissance"
+class="uri">https://regarts.huma-num.fr/v/naissance</a><a
 href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn16"><p>https://regarts.huma-num.fr/v/adresses<a
-href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn17"><p>https://regarts.huma-num.fr/v/reseau<a href="#fnref17"
+<li id="fn16"><p><a href="https://regarts.huma-num.fr/v/adresses"
+class="uri">https://regarts.huma-num.fr/v/adresses</a><a href="#fnref16"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn18"><p>https://sigmajs.org<a href="#fnref18"
+<li id="fn17"><p><a href="https://regarts.huma-num.fr/v/reseau"
+class="uri">https://regarts.huma-num.fr/v/reseau</a><a href="#fnref17"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><a href="https://sigmajs.org"
+class="uri">https://sigmajs.org</a><a href="#fnref18"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
@@ -698,27 +543,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
     </div>
   </footer>
 
-  
-  <script>
-    // Navbar burger menu functionality
-    document.addEventListener('DOMContentLoaded', () => {
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-    
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    });
-  </script>
 
   <!-- Lightbox JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -730,71 +554,10 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-bash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-xml.min.js"></script>
 
-  <script>
-    // Configure Lightbox
-    lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true,
-      'albumLabel': 'Image %1 of %2',
-      'fadeDuration': 300,
-      'imageFadeDuration': 300
-    });
-
-    // Add copy buttons to code blocks
-    document.addEventListener('DOMContentLoaded', function() {
-      // Find all code blocks (both .sourceCode and figure-wrapped ones)
-      const codeBlocks = document.querySelectorAll('div.sourceCode, div.float-body.listing');
-
-      // SVG icons
-      const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>';
-      const checkIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>';
-
-      codeBlocks.forEach(function(block) {
-        // Create copy button
-        const button = document.createElement('button');
-        button.className = 'code-copy-button';
-        button.innerHTML = copyIcon;
-        button.setAttribute('aria-label', 'Copy code to clipboard');
-        button.setAttribute('title', 'Copy code');
-
-        // Add click handler
-        button.addEventListener('click', function() {
-          // Get the code content
-          const code = block.querySelector('code');
-          const text = code.textContent;
-
-          // Copy to clipboard
-          navigator.clipboard.writeText(text).then(function() {
-            // Show success feedback
-            button.innerHTML = checkIcon;
-            button.classList.add('copied');
-            button.setAttribute('title', 'Copied!');
-
-            // Reset button after 2 seconds
-            setTimeout(function() {
-              button.innerHTML = copyIcon;
-              button.classList.remove('copied');
-              button.setAttribute('title', 'Copy code');
-            }, 2000);
-          }).catch(function(err) {
-            console.error('Failed to copy text: ', err);
-            button.innerHTML = '✕';
-            setTimeout(function() {
-              button.innerHTML = copyIcon;
-            }, 2000);
-          });
-        });
-
-        // Insert button into the code block container
-        block.appendChild(button);
-      });
-
-      // Re-run Prism highlighting if needed
-      if (typeof Prism !== 'undefined') {
-        Prism.highlightAll();
-      }
-    });
-  </script>
+  <!-- Custom JavaScript -->
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/lightbox-config.js"></script>
+  <script src="../../../js/code-copy.js"></script>
 
 </body>
 </html>

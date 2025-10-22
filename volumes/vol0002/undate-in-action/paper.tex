@@ -63,7 +63,7 @@ This paper provides an introduction to the \texttt{undate} python library with a
 
 \section{Introduction} 
 
-\texttt{undate} is a python library for working with uncertain or partially known dates, with support for multiple calendars \cite{koeser_undate_python_2025}. It is ``an ambitious in-progress effort to develop a pragmatic Python package for the computation and analysis of temporal information in humanistic and cultural data, with a particular emphasis on uncertain, incomplete or imprecise dates and with support for multiple calendaring systems and date formats'' \cite{koeser_undate_2025}. The software is freely available on GitHub\footnote{https://github.com/dh-tech/undate-python/} and published under an open source software license. This project was originally started at a DHTech Hackathon \cite{koeser_join_2023}, and builds on experiences from other digital humanities projects. The ultimate goal is to build an active community of people that are using and maintaining the project, and developing it further.
+\texttt{undate} is a python library for working with uncertain or partially known dates, with support for multiple calendars \cite{koeser_undate_python_2025}. It is ``an ambitious in-progress effort to develop a pragmatic Python package for the computation and analysis of temporal information in humanistic and cultural data, with a particular emphasis on uncertain, incomplete or imprecise dates and with support for multiple calendaring systems and date formats'' \cite{koeser_undate_2025}. The software is freely available on GitHub\footnote{\url{https://github.com/dh-tech/undate-python/}} and published under an open source software license. This project was originally started at a DHTech Hackathon \cite{koeser_join_2023}, and builds on experiences from other digital humanities projects. The ultimate goal is to build an active community of people that are using and maintaining the project, and developing it further.
 
 \begin{figure}[h]
   \centering
@@ -139,12 +139,16 @@ for example_date in [
 - Duration in days: {example_date.duration().days}""")
 \end{minted}
 
+
+
 \noindent
 \textbf{November 2000} \texttt{2000-11}
 \begin{itemize}
     \item Date precision: MONTH
     \item Duration in days: 30
 \end{itemize}
+
+
 
 \noindent
 \textbf{Y2K} \texttt{2000}
@@ -153,6 +157,8 @@ for example_date in [
     \item Duration in days: 366
 \end{itemize}
 
+
+
 \noindent
 \textbf{Some November 7} \texttt{-}\texttt{-11-07}
 \begin{itemize}
@@ -160,12 +166,16 @@ for example_date in [
    \item Duration in days: 1
 \end{itemize}
 
+
+
 \noindent
 \textbf{November 7, 2000} \texttt{2000-11-07}
 \begin{itemize}
     \item Date precision: DAY
     \item Duration in days: 1
 \end{itemize}
+
+
 
 \noindent
 \textbf{Easter 1916} \texttt{1916-04-23}
@@ -203,6 +213,8 @@ for example_date in [someyear_1900s, late2022]:
 """)
 \end{minted}
 
+
+
 \noindent
 \textbf{1900s} \texttt{19XX}
 \begin{itemize}
@@ -210,6 +222,8 @@ for example_date in [someyear_1900s, late2022]:
     \item Duration in days: 366
 \end{itemize}
     
+
+
 \noindent
 \textbf{late 2022} \texttt{2022-1X}
 \begin{itemize}
@@ -245,12 +259,16 @@ print(f"""{someyear_1900s.label} {someyear_1900s}
 """)
 \end{minted}
 
+
+
 \noindent
 \textbf{1900s} \texttt{19XX}
 \begin{itemize}
     \item duration: \texttt{UnDelta(days=[365,366])}
     \item duration in days: \texttt{UnInt(lower=365, upper=366)}
 \end{itemize}
+
+
 
 \noindent
 \textbf{late 2022} \texttt{2022-1X}
@@ -273,6 +291,8 @@ print(f"""{some_february.label} {some_february}
 """)
 
 \end{minted}
+
+
 
 \noindent
 \textbf{February of some year} \texttt{{-}{-02}}

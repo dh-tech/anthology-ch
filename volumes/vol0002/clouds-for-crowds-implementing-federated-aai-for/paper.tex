@@ -87,23 +87,37 @@ By adopting the DARIAH AAI, service providers and developers can focus on delive
 
 The technological background of DARIAH AAI is provided using established technologies and standardised protocols for federated identity management, as summarised below. More background information can be found in Chapter 3.3.3, \textit{Access control to research data in the frame of FAIR principles and open access} \cite{erzsebet_toth_czifra_2023_8059626}.
 
+
+
 \noindent
 \textbf{SAML (Security Assertion Markup Language).} The DARIAH AAI uses SAML as the primary protocol for exchanging authentication and authorisation information between identity providers and service providers. SAML allows for the secure exchange of user attributes and authentication statements between parties.
+
+
 
 \noindent
 \textbf{OpenID Connect (OIDC).} In addition to SAML, the DARIAH AAI also supports OIDC, an authentication protocol built on top of the OAuth 2.0 framework. OIDC provides a simpler and more lightweight alternative to SAML for authentication and authorisation.
 
+
+
 \noindent
 \textbf{OAuth 2.0.} The DARIAH AAI also supports OAuth 2.0 as the authorisation framework for managing access to protected resources. OAuth 2.0 provides a standardised mechanism for clients to request access to resources on behalf of the user.
+
+
 
 \noindent
 \textbf{Shibboleth and SimpleSAMLphp.} The DARIAH AAI is based on the Shibboleth and simpleSAMLphp open source software systems, which provide a robust and scalable framework for managing identity federation. Both products support SAML and OIDC, and can provide a single sign-on (SSO) experience across both protocols.
 
+
+
 \noindent
 \textbf{Role-based Access Control (RBAC).} The DARIAH AAI implements RBAC as a policy-based approach to access control. It allows for fine-grained access control decisions based on user roles, affiliations and permissions.
     
+
+
 \noindent
 \textbf{LDAP (Lightweight Directory Access Protocol).} The DARIAH AAI uses LDAP as a directory service for storing and managing user attributes and identity information, as well as group memberships and roles.
+
+
 
 \noindent
 \textbf{SP/IdP Proxy (Service Provider / Identity Provider Proxy).} DARIAH’s SP/IdP proxy simplifies the connection of services and identity sources to the infrastructure. This mechanism enables  any DARIAH related attributes (e.g. member of a specific research project), to be provided, in addition to the attributes provided by the home organisation.
